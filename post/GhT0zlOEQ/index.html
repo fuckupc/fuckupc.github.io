@@ -76,8 +76,8 @@
 <p>赋值运算符</p>
 <p>关系运算符</p>
 <p>三元运算符（条件运算符）</p>
-<p><strong>算数运算符</strong><br>常见的算数运算符有以下几种：<br><a href="https://camo.githubusercontent.com/5d86c830f1c6b223c30f60a075a05f2160e01eac/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313635312e706e67">https://camo.githubusercontent.com/5d86c830f1c6b223c30f60a075a05f2160e01eac/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313635312e706e67</a><br><strong>求余的举例：</strong><br>假设用户输入345，怎么分别得到3、4、5这三个数呢？<br>答案：</p>
-<pre><code>得到3的方法：345 除以100，得到3.45然后取整，得到3。即：parseInt(345/100)
+<p><strong>算数运算符</strong><br>常见的算数运算符有以下几种：<br><img src="https://fuckupc.github.io/post-images/1552477537282.png" alt=""><br><strong>求余的举例：</strong><br>假设用户输入345，怎么分别得到3、4、5这三个数呢？<br>答案：</p>
+<pre><code>    得到3的方法：345 除以100，得到3.45然后取整，得到3。即：parseInt(345/100)
     得到4的方法：345 除以100，余数是45，除以10，得到4.5，取整。即：parseInt(345 % 100 / 10)
     得到5的方法：345 除以10，余数就是5。即：345 % 10</code></pre><p><strong>算数运算符的运算规则</strong><br>（1）先算乘除、后算加减。<br>（2）小括号：能够影响计算顺序，且可以嵌套。没有中括号、没有大括号，只有小括号。<br>（3）百分号：取余。只关心余数。<br>举例1：(取余)<br><code>console.log(3 % 5);</code><br>输出结果为3。<br>举例2：（注意运算符优先级）<br><code>var a = 1 + 2 * 3 % 4 / 3;</code><br>结果分析：<br>原式 = 1 + 6 % 4 / 3 = 1 + 2 / 3 = 1.66666666666666</p>
 <p><strong>算数运算符的注意事项</strong><br>（1）当对非Number类型的值进行运算（包括<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>）时，会将这些值转换为Number然后再运算。（注：<code>字符串 + Number</code>、<code>字符串 + 字符串</code>是特例，稍后再讲）<br>比如：</p>
@@ -87,9 +87,9 @@
     result4 = 100 - &#39;1&#39; // 99</code></pre><p>（2）任何值和NaN做运算的结果都是NaN。<br>（3）任何的值和字符串做加法运算，都会先转换为字符串，然后再做拼串操作。<br>比如：</p>
 <pre><code>        result1 = 1 + 2 + &#39;3&#39;  // 33
         result2 = &#39;1&#39; + 2 + 3; // 123</code></pre><p>我们可以利用这一特点，来将一个任意的数据类型转换为String：我们只需要为任意的数据类型 + 一个 &quot;&quot; 即可将其转换为String。这是一种<strong>隐式</strong>的类型转换，由浏览器自动完成，实际上它也是调用String()函数。也就是说，<code>c = c + &quot;&quot;</code> 等价于 <code>c = String(c)</code>。<br>（4）任何值做<code>-</code>、<code>*</code>、<code>/</code>运算时都会自动转换为Number。<br>我们可以利用这一特点，为一个值<code>-0</code>、<code>*1</code>、<code>/1</code>来将其转换为Number。原理和Number()函数一样，使用起来更加简单。</p>
-<p><strong>乘方</strong><br>如果想计算 <code>a 的 b 次方</code>，可以使用如下函数：<br>        <code>Math.pow(a, b);</code><br>Math的中文是“数学”，pow是“power 幂”。<br><strong>举例1：</strong><br><a href="https://camo.githubusercontent.com/b7b5b3382ff21a666a68c91d40f4cc97643f8860/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313733302e706e67">https://camo.githubusercontent.com/b7b5b3382ff21a666a68c91d40f4cc97643f8860/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313733302e706e67</a><br>代码实现：</p>
+<p><strong>乘方</strong><br>如果想计算 <code>a 的 b 次方</code>，可以使用如下函数：<br>        <code>Math.pow(a, b);</code><br>Math的中文是“数学”，pow是“power 幂”。<br><strong>举例1：</strong><br><img src="https://fuckupc.github.io/post-images/1552477579155.png" alt=""><br>代码实现：</p>
 <pre><code>    var a = Math.pow(3, Math.pow(2, 2));
-    console.log(a);</code></pre><p><strong>举例2：</strong><br><a href="https://camo.githubusercontent.com/2bf224526dff83d3fb2c37622becef67684b58da/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313734302e706e67">https://camo.githubusercontent.com/2bf224526dff83d3fb2c37622becef67684b58da/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313734302e706e67</a><br>代码实现：</p>
+    console.log(a);</code></pre><p><strong>举例2：</strong><br><img src="https://fuckupc.github.io/post-images/1552477589937.png" alt=""><br>代码实现：</p>
 <pre><code>    var a = Math.pow(Math.pow(3, 2), 4);
     console.log(a);</code></pre><p><strong>开方</strong><br>如果想计算数值a的开二次方，可以使用如下函数：<br>        <code>Math.sqrt(a);</code><br>sqrt即“square 开方”。比如：<br>        <code>var a = Math.sqrt(36);</code></p>
 <p><strong>一元运算符</strong><br>一元运算符，只需要一个操作数。<br>常见的一元运算符如下。<br><strong>typeof</strong><br>typeof就是典型的一元运算符，因为后面只跟一个操作数。<br>举例如下：</p>
@@ -103,7 +103,7 @@
     var b = &#39;18&#39;;
     b = +b;   // 注意这行代码的一元运算符操作
     console.log(&#39;b：&#39; + b);
-    console.log(typeof b);</code></pre><p>打印结果：<br><a href="https://camo.githubusercontent.com/4675228eaf21f5bd18803f26449c1d856e788383/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232315f323035302e706e67">https://camo.githubusercontent.com/4675228eaf21f5bd18803f26449c1d856e788383/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232315f323035302e706e67</a></p>
+    console.log(typeof b);</code></pre><p>打印结果：<br><img src="https://fuckupc.github.io/post-images/1552477655792.png" alt=""></p>
 <p><strong>负号<code>-</code></strong><br>负号可以对数字进行取反。</p>
 <h1 id="自增和自减">自增和自减</h1><p><strong>自增<code>++</code></strong><br>自增分成两种：<code>a++</code>和<code>++a</code>。<br>（1）对于一个变量自增以后，原变量的值会<strong>立即</strong>自增1。也就是说，无论是 <code>a++</code> 还是<code>++a</code>，都会立即使原变量的值自增1。<br>（2）<strong>我们要注意的是</strong>：<code>a</code>是变量，而<code>a++</code>和<code>++a</code>是<strong>表达式</strong>。<br>那这两种自增，有啥区别呢？区别是：<code>a++</code> 和 <code>++a</code>的值不同：（也就是说，表达式的值不同）<br>        <code>a++</code>的值等于原变量的值（a自增前的值）<br>        <code>++a</code>的值等于新值 （a自增后的值）<br><strong>自减 <code>--</code></strong><br>原理同上。<br><strong>代码举例</strong></p>
 <pre><code>        var n1 = 10;
@@ -208,9 +208,9 @@
 <blockquote>
 <p>这一段中，我们来讲引申的内容：Unicode编码的使用。<br>1、在字符串中可以使用转义字符输入Unicode编码。格式如下：<br>            <code>\u四位编码</code><br>举例如下：</p>
 <pre><code>    console.log(&quot;\u2600&quot;);  // 这里的 2600 采用的是16进制
-    console.log(&quot;\u2602&quot;);  // 这里的 2602 采用的是16进制。</code></pre><p>打印结果：<br><a href="https://camo.githubusercontent.com/234001b3c8d219243ad07f2d0cef395e814a11cf/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313231382e706e67">https://camo.githubusercontent.com/234001b3c8d219243ad07f2d0cef395e814a11cf/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313231382e706e67</a></p>
+    console.log(&quot;\u2602&quot;);  // 这里的 2602 采用的是16进制。</code></pre><p>打印结果：<br><img src="https://fuckupc.github.io/post-images/1552477676963.png" alt=""></p>
 </blockquote>
-<p>2、同样，我们可以在网页中使用Unicode编码。格式如下：<br><code>&amp;#编码;</code><br>PS：我们知道，Unicode编码采用的是16进制，但是，这里的编码需要使用10进制。<br>举例如下：<br><code>&lt;h1 style=&quot;font-size: 100px;&quot;&gt;&amp;#9860;&lt;/h1&gt;</code><br>打印结果：<br><a href="https://camo.githubusercontent.com/9e2b2303e812db04b4f9abbc7106c6e1d4bff86d/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313232362e706e67">https://camo.githubusercontent.com/9e2b2303e812db04b4f9abbc7106c6e1d4bff86d/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313232362e706e67</a></p>
+<p>2、同样，我们可以在网页中使用Unicode编码。格式如下：<br><code>&amp;#编码;</code><br>PS：我们知道，Unicode编码采用的是16进制，但是，这里的编码需要使用10进制。<br>举例如下：<br><code>&lt;h1 style=&quot;font-size: 100px;&quot;&gt;&amp;#9860;&lt;/h1&gt;</code><br>打印结果：<br><img src="https://fuckupc.github.io/post-images/1552477691096.png" alt=""></p>
 
             </div>
           </article>
