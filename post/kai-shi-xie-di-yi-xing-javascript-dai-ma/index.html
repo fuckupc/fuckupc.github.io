@@ -1,71 +1,98 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>开始写第一行JavaScript代码 | Legend of Today</title>
+<meta name="description" content="By recording what have been learned,  master them you can.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    By recording what have been learned,  master them you can.
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://fuckupc.github.io">
+        <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://fuckupc.github.io">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              开始写第一行JavaScript代码
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-03-13 ·
-              </time>
-              
-                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
-                  # Javascript
-                </a>
-              
-            </div>
-            <div class="post-content">
-              <p><strong>JavaScript代码的书写位置</strong><br>（1）内嵌的方式：<br>页面中，我们可以在<code>&lt;body&gt;</code>标签里放入<code>&lt;script type=”text/javascript”&gt;&lt;/script&gt;</code>标签对儿，并在<code>&lt;script&gt;</code>里书写JavaScript程序：<br>text表示纯文本，因为JavaScript也是一个纯文本的语言。<br>PS：在Sublime Text里，输入<code>&lt;sc</code> 后，按tab键，可以自动补齐。<br>（2）外链式：引入外部JavaScript文件（放到body标签里，可以和内嵌的js代码并列）</p>
+          <h2 class="post-title">开始写第一行JavaScript代码</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-03-13</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                    Javascript
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p><strong>JavaScript代码的书写位置</strong><br>（1）内嵌的方式：<br>页面中，我们可以在<code>&lt;body&gt;</code>标签里放入<code>&lt;script type=”text/javascript”&gt;&lt;/script&gt;</code>标签对儿，并在<code>&lt;script&gt;</code>里书写JavaScript程序：<br>text表示纯文本，因为JavaScript也是一个纯文本的语言。<br>PS：在Sublime Text里，输入<code>&lt;sc</code> 后，按tab键，可以自动补齐。<br>（2）外链式：引入外部JavaScript文件（放到body标签里，可以和内嵌的js代码并列）</p>
 <p><strong>alert语句</strong><br>我们要学习的第一个语句，就是alert语句。</p>
 <p>alert（英文翻译为“警报”）的用途：弹出“警告框”。<br>如果写了两个alert()语句的话，网页的效果是：弹出第一个警告框，点击确定后，继续弹出第二个警告框。</p>
 <p><strong>语法规则</strong><br>学习程序，是有规律可循的，就是程序是有相同的部分，这些部分就是一种规定，不能更改，我们成为：语法。<br>（1）JavaScript对换行、缩进、空格不敏感。每一条语句以分号结尾。<br>代码一：</p>
@@ -106,58 +133,73 @@
 <p><strong>alert和prompt的区别：</strong></p>
 <pre><code>    alert(&quot;从前有座山&quot;);                //直接使用，不需要变量
     var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，来接收用户输入的值</code></pre>
-            </div>
-          </article>
+          </div>
         </div>
-    
+
         
           <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://fuckupc.github.io/post/javascript-jie-shao">
+            <a class="purple-link" href="https://fuckupc.github.io/post/javascript-jie-shao">
               <h3 class="post-title">
-                JavaScript介绍
+                下一篇：JavaScript介绍
               </h3>
             </a>
-          </div>  
+          </div>
+          
+      </div>
+
+      
+        
+          <div id="gitalk-container"></div>
         
 
         
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+      
 
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '48a1f04adf6a01060905',
-    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-    repo: 'fuckupc.github.io',
-    owner: 'fuckupc',
-    admin: ['fuckupc'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-    
-        <div class="site-footer">
+      <div class="site-footer">
+  <div class="slogan">By recording what have been learned,  master them you can.</div>
   Powered by Hve Notes
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

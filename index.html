@@ -1,230 +1,304 @@
+
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Legend of Today</title>
+<meta name="description" content="By recording what have been learned,  master them you can.">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    By recording what have been learned,  master them you can.
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://fuckupc.github.io">
+        <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://fuckupc.github.io">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
-    
-        <div class="post-container">
-  
-    <article class="post">
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        
+        
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/GhT0zlOEQ">
         <h2 class="post-title">运算符</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                Javascript
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/2q4W2AMp2">
         <h2 class="post-title">变量的强制类型转换</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                Javascript
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/bian-liang-de-shu-ju-lei-xing">
         <h2 class="post-title">变量的数据类型</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                Javascript
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/bian-liang">
         <h2 class="post-title">变量</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                Javascript
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/kai-shi-xie-di-yi-xing-javascript-dai-ma">
         <h2 class="post-title">开始写第一行JavaScript代码</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                Javascript
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/javascript-jie-shao">
         <h2 class="post-title">JavaScript介绍</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                Javascript
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/javascript-bei-jing">
         <h2 class="post-title">JavaScript背景</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
-  
-    <article class="post">
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://fuckupc.github.io/tag/10cTD3yCu">
+                Javascript
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://fuckupc.github.io/post/zi-xue-qian-duan-shi-xu-yao-zhu-yi-de-wen-ti">
         <h2 class="post-title">自学前端时需要注意的问题</h2>
       </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-      </div>
-      
       <div class="post-abstract">
         
-      </di>
-    </article>
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-03-13</span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
   
 </div>
 
-    
-        <div class="pagination-container">
-  
-  
-</div>
 
-    
-        <div class="site-footer">
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">By recording what have been learned,  master them you can.</div>
   Powered by Hve Notes
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>
