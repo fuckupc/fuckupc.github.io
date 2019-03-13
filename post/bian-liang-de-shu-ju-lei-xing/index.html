@@ -1,15 +1,12 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>变量的数据类型 | Legend of Today</title>
 <meta name="description" content="By recording what have been learned,  master them you can.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
@@ -25,74 +22,65 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://fuckupc.github.io">
-        <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://fuckupc.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
         <h1 class="site-title">Legend of Today</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      By recording what have been learned,  master them you can.
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          <h2 class="post-title">变量的数据类型</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-03-13</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">变量的数据类型</h2>
+            <div class="post-date">2019-03-13</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://fuckupc.github.io/tag/10cTD3yCu">
-                    Javascript
-                    
-                  </a>
-                
-              </span>
-            
-          </div>
-          <div class="post-content">
-            <p>变量里面能够存储数字、字符串等。变量会自动的根据存储内容的类型不同，来决定自己的类型。</p>
+            <div class="post-content">
+              <p>变量里面能够存储数字、字符串等。变量会自动的根据存储内容的类型不同，来决定自己的类型。</p>
 <p><strong>在JS中一共有六种数据类型：</strong></p>
 <p>基本数据类型（值类型）：String 字符串、Number 数值、Boolean 布尔值、Null 空值、Undefined 未定义。</p>
 <p>引用数据类型（引用类型）：Object 对象。</p>
@@ -130,36 +118,46 @@
 <p><strong>undefined：未定义</strong><br>声明了一个变量，但是没有赋值（例如：<code>var a;</code>），此时它的值就是undefined。<br>        Undefined类型的值只有一个，就是undefind<br>        使用 type of 检查一个undefined时，会返回undefined。<br>null和undefined有最大的相似性。看看null == undefined的结果(true)也就更加能说明这点。<br>但是null === undefined的结果(false)。它们虽然相似，但还是有区别的，其中一个区别是：和数字运算时，10 + null结果为：10；10 + undefined结果为：NaN。<br>        任何数据类型和undefined运算都是NaN;<br>        任何值和null运算，null可看做0运算。</p>
 <p><strong>变量值的传递（赋值）</strong><br>语句：<br><code>a = b;</code><br>把b的值赋给a，b不变。<br>将等号右边的值，赋给左边的变量；等号右边的变量，值不变。</p>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="tag">
+                    Javascript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/bian-liang">
+                  <h3 class="post-title">
+                    变量
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="https://fuckupc.github.io/post/bian-liang">
-              <h3 class="post-title">
-                下一篇：变量
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-        
-          <div id="gitalk-container"></div>
-        
-
-        
-      
-
-      <div class="site-footer">
-  <div class="slogan">By recording what have been learned,  master them you can.</div>
-  Powered by Hve Notes
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 

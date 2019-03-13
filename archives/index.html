@@ -1,13 +1,12 @@
+<!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
-<title>Legend of Today</title>
+<title>文章归档 | Legend of Today</title>
 <meta name="description" content="By recording what have been learned,  master them you can.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
@@ -17,165 +16,163 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://fuckupc.github.io">
-        <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://fuckupc.github.io">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
         <h1 class="site-title">Legend of Today</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
     </div>
   </div>
-</transition>
-
-
-        <div class="content-container">
-          
-          
-
-<div class="archives-container">
-  
-    <h2 class="year">2019</h2>
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/GhT0zlOEQ">
-            <h2 class="post-title">
-              运算符
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/2q4W2AMp2">
-            <h2 class="post-title">
-              变量的强制类型转换
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/bian-liang-de-shu-ju-lei-xing">
-            <h2 class="post-title">
-              变量的数据类型
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/bian-liang">
-            <h2 class="post-title">
-              变量
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/kai-shi-xie-di-yi-xing-javascript-dai-ma">
-            <h2 class="post-title">
-              开始写第一行JavaScript代码
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/javascript-jie-shao">
-            <h2 class="post-title">
-              JavaScript介绍
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/javascript-bei-jing">
-            <h2 class="post-title">
-              JavaScript背景
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-      
-        <article class="post">
-          <a href="https://fuckupc.github.io/post/zi-xue-qian-duan-shi-xu-yao-zhu-yi-de-wen-ti">
-            <h2 class="post-title">
-              自学前端时需要注意的问题
-              <small>2019-03-13</small>
-            </h2>
-          </a>
-        </article>
-      
-    
-  
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      By recording what have been learned,  master them you can.
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
+  </div>
 </div>
 
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          
+
+          <h2 class="archives-title">文章归档</h2>
+          <div class="archives-container">
+            
+              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/GhT0zlOEQ">
+                      <h2 class="post-title">
+                        运算符
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/2q4W2AMp2">
+                      <h2 class="post-title">
+                        变量的强制类型转换
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/bian-liang-de-shu-ju-lei-xing">
+                      <h2 class="post-title">
+                        变量的数据类型
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/bian-liang">
+                      <h2 class="post-title">
+                        变量
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/kai-shi-xie-di-yi-xing-javascript-dai-ma">
+                      <h2 class="post-title">
+                        开始写第一行JavaScript代码
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/javascript-jie-shao">
+                      <h2 class="post-title">
+                        JavaScript介绍
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/javascript-bei-jing">
+                      <h2 class="post-title">
+                        JavaScript背景
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+                
+                  <article class="post">
+                    <a href="https://fuckupc.github.io/post/zi-xue-qian-duan-shi-xu-yao-zhu-yi-de-wen-ti">
+                      <h2 class="post-title">
+                        自学前端时需要注意的问题
+                      </h2>
+                    </a>
+                  </article>
+                
+              
+            
+          </div>
+
+          <div class="pagination-container">
+  
+  
+</div>
 
         </div>
-
-        <div class="site-footer">
-  <div class="slogan">By recording what have been learned,  master them you can.</div>
-  Powered by Hve Notes
-</div>
-
-
       </div>
-      <script type="application/javascript">
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 
@@ -191,6 +188,5 @@ var app = new Vue({
 
 
 
-    </div>
   </body>
 </html>
