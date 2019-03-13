@@ -1,0 +1,265 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>运算符 | Legend of Today</title>
+<link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
+<link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fuckupc.github.io">
+  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    Legend of Today
+  </h1>
+  <p class="site-description">
+    By recording what have been learned,  master them you can.
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              运算符
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-03-13 ·
+              </time>
+              
+            </div>
+            <div class="post-content">
+              <h1 id="前言">前言</h1><p>比如说<code>+</code>、<code>*</code>、<code>/</code>、<code>(</code> 都是<strong>运算符</strong>，而<code>（3+5）/2</code>则是<strong>表达式</strong>。</p>
+<p><strong>运算符的定义和分类</strong><br>运算符也叫操作符。通过运算符可以对一个或多个值进行运算，并获取运算结果。</p>
+<p>比如：typeof 就是运算符，可以来获得一个值的类型。它会将该值的类型以<strong>字符串</strong>的形式返回：number string boolean undefined object。</p>
+<p>注：运算符都是会返回结果的，而typeof这个运算符返回的结果就是变量的类型。那返回的结果的类型是什么呢？是字符串。</p>
+<p>运算符有很多分类，比如：</p>
+<p>算数运算符</p>
+<p>自增运算符</p>
+<p>逻辑运算符</p>
+<p>赋值运算符</p>
+<p>关系运算符</p>
+<p>三元运算符（条件运算符）</p>
+<p><strong>算数运算符</strong><br>常见的算数运算符有以下几种：<br><a href="https://camo.githubusercontent.com/5d86c830f1c6b223c30f60a075a05f2160e01eac/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313635312e706e67">https://camo.githubusercontent.com/5d86c830f1c6b223c30f60a075a05f2160e01eac/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313635312e706e67</a><br><strong>求余的举例：</strong><br>假设用户输入345，怎么分别得到3、4、5这三个数呢？<br>答案：</p>
+<pre><code>得到3的方法：345 除以100，得到3.45然后取整，得到3。即：parseInt(345/100)
+    得到4的方法：345 除以100，余数是45，除以10，得到4.5，取整。即：parseInt(345 % 100 / 10)
+    得到5的方法：345 除以10，余数就是5。即：345 % 10</code></pre><p><strong>算数运算符的运算规则</strong><br>（1）先算乘除、后算加减。<br>（2）小括号：能够影响计算顺序，且可以嵌套。没有中括号、没有大括号，只有小括号。<br>（3）百分号：取余。只关心余数。<br>举例1：(取余)<br><code>console.log(3 % 5);</code><br>输出结果为3。<br>举例2：（注意运算符优先级）<br><code>var a = 1 + 2 * 3 % 4 / 3;</code><br>结果分析：<br>原式 = 1 + 6 % 4 / 3 = 1 + 2 / 3 = 1.66666666666666</p>
+<p><strong>算数运算符的注意事项</strong><br>（1）当对非Number类型的值进行运算（包括<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>）时，会将这些值转换为Number然后再运算。（注：<code>字符串 + Number</code>、<code>字符串 + 字符串</code>是特例，稍后再讲）<br>比如：</p>
+<pre><code>    result1 = true + 1;  // 2 = 1+ 1
+    result2 = true + false; // 1 = 1+ 0
+    result3 = 1 + null; // 1 = 1+ 0
+    result4 = 100 - &#39;1&#39; // 99</code></pre><p>（2）任何值和NaN做运算的结果都是NaN。<br>（3）任何的值和字符串做加法运算，都会先转换为字符串，然后再做拼串操作。<br>比如：</p>
+<pre><code>        result1 = 1 + 2 + &#39;3&#39;  // 33
+        result2 = &#39;1&#39; + 2 + 3; // 123</code></pre><p>我们可以利用这一特点，来将一个任意的数据类型转换为String：我们只需要为任意的数据类型 + 一个 &quot;&quot; 即可将其转换为String。这是一种<strong>隐式</strong>的类型转换，由浏览器自动完成，实际上它也是调用String()函数。也就是说，<code>c = c + &quot;&quot;</code> 等价于 <code>c = String(c)</code>。<br>（4）任何值做<code>-</code>、<code>*</code>、<code>/</code>运算时都会自动转换为Number。<br>我们可以利用这一特点，为一个值<code>-0</code>、<code>*1</code>、<code>/1</code>来将其转换为Number。原理和Number()函数一样，使用起来更加简单。</p>
+<p><strong>乘方</strong><br>如果想计算 <code>a 的 b 次方</code>，可以使用如下函数：<br>        <code>Math.pow(a, b);</code><br>Math的中文是“数学”，pow是“power 幂”。<br><strong>举例1：</strong><br><a href="https://camo.githubusercontent.com/b7b5b3382ff21a666a68c91d40f4cc97643f8860/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313733302e706e67">https://camo.githubusercontent.com/b7b5b3382ff21a666a68c91d40f4cc97643f8860/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313733302e706e67</a><br>代码实现：</p>
+<pre><code>    var a = Math.pow(3, Math.pow(2, 2));
+    console.log(a);</code></pre><p><strong>举例2：</strong><br><a href="https://camo.githubusercontent.com/2bf224526dff83d3fb2c37622becef67684b58da/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313734302e706e67">https://camo.githubusercontent.com/2bf224526dff83d3fb2c37622becef67684b58da/687474703a2f2f696d672e736d79687661652e636f6d2f32303138303131375f313734302e706e67</a><br>代码实现：</p>
+<pre><code>    var a = Math.pow(Math.pow(3, 2), 4);
+    console.log(a);</code></pre><p><strong>开方</strong><br>如果想计算数值a的开二次方，可以使用如下函数：<br>        <code>Math.sqrt(a);</code><br>sqrt即“square 开方”。比如：<br>        <code>var a = Math.sqrt(36);</code></p>
+<p><strong>一元运算符</strong><br>一元运算符，只需要一个操作数。<br>常见的一元运算符如下。<br><strong>typeof</strong><br>typeof就是典型的一元运算符，因为后面只跟一个操作数。<br>举例如下：</p>
+<pre><code>    var a = &#39;123&#39;;
+    console.log(typeof a); // 打印结果：string</code></pre><p><strong>正号 +</strong><br>（1）正号不会对数字产生任何影响。比如说，<code>2</code>和<code>+2</code>是一样的。<br>（2）我们可以对一个其他的数据类型使用<code>+</code>，来将其转换为number【小技巧】。比如：</p>
+<pre><code>    var a = true;
+    a = +a;   // 注意这行代码的一元运算符操作
+    console.log(&#39;a：&#39; + a);
+    console.log(typeof a);
+    console.log(&#39;-----------------&#39;);
+    var b = &#39;18&#39;;
+    b = +b;   // 注意这行代码的一元运算符操作
+    console.log(&#39;b：&#39; + b);
+    console.log(typeof b);</code></pre><p>打印结果：<br><a href="https://camo.githubusercontent.com/4675228eaf21f5bd18803f26449c1d856e788383/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232315f323035302e706e67">https://camo.githubusercontent.com/4675228eaf21f5bd18803f26449c1d856e788383/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232315f323035302e706e67</a></p>
+<p><strong>负号<code>-</code></strong><br>负号可以对数字进行取反。</p>
+<h1 id="自增和自减">自增和自减</h1><p><strong>自增<code>++</code></strong><br>自增分成两种：<code>a++</code>和<code>++a</code>。<br>（1）对于一个变量自增以后，原变量的值会<strong>立即</strong>自增1。也就是说，无论是 <code>a++</code> 还是<code>++a</code>，都会立即使原变量的值自增1。<br>（2）<strong>我们要注意的是</strong>：<code>a</code>是变量，而<code>a++</code>和<code>++a</code>是<strong>表达式</strong>。<br>那这两种自增，有啥区别呢？区别是：<code>a++</code> 和 <code>++a</code>的值不同：（也就是说，表达式的值不同）<br>        <code>a++</code>的值等于原变量的值（a自增前的值）<br>        <code>++a</code>的值等于新值 （a自增后的值）<br><strong>自减 <code>--</code></strong><br>原理同上。<br><strong>代码举例</strong></p>
+<pre><code>        var n1 = 10;
+        var n2 = 20;
+
+        var n = n1++; //n1 = 11  n1++ = 10
+
+        console.log(&#39;n=&#39;+n);  // 10
+        console.log(&#39;n1=&#39;+n1); //11
+
+        n = ++n1 //n1 = 12  ++n1 =12
+        console.log(&#39;n=&#39;+n); //12
+        console.log(&#39;n1=&#39;+n1); //12
+
+        n = n2--;// n2=19 n2--=20
+        console.log(&#39;n=&#39;+n); //20
+        console.log(&#39;n2=&#39;+n2); //19
+
+        n = --n2; //n2=18 --n2 = 18
+        console.log(&#39;n=&#39;+n); //18
+        console.log(&#39;n2=&#39;+n2); //18</code></pre><h1 id="逻辑运算符">逻辑运算符</h1><p>逻辑运算符有三个：<br>        <code>&amp;&amp;</code> 与（且）：两个都为真，结果才为真。<br>    <code>||</code>    或：只要有一个是真，结果就是真。<br>    <code>!</code>非：对一个布尔值进行取反。<br><strong>连比的写法：</strong><br>来看看逻辑运算符连比的写法。<br>举例1：<br><code>console.log(3 &lt; 2 &amp;&amp; 2 &lt; 4);</code><br>输出结果为false。<br>举例2：（判断一个人的年龄是否在18~60岁之间）</p>
+<pre><code>        var a = prompt(&quot;请输入您的年龄&quot;);
+        alert(a&gt;=18 &amp;&amp; a&lt;= 65);</code></pre><p>PS：上面的这个<code>a&gt;=18 &amp;&amp; a&lt;= 65</code>千万别想当然的写成 <code>18&lt;= a &lt;= 65</code>，没有这种语法。</p>
+<p><strong>注意事项</strong><br>（1）能参与逻辑运算的，都是布尔值。<br>（2）JS中的<code>&amp;&amp;</code>属于<strong>短路</strong>的与，如果第一个值为false，则不会看第二个值。举例：</p>
+<pre><code>    //第一个值为true，会检查第二个值
+    true &amp;&amp; alert(&quot;看我出不出来！！&quot;);  // 可以弹出 alert 框
+
+    //第一个值为false，不会检查第二个值
+    false &amp;&amp; alert(&quot;看我出不出来！！&quot;); // 不会弹出 alert 框</code></pre><p>（3）JS中的<code>||</code> 属于<strong>短路</strong>的或，如果第一个值为true，则不会看第二个值。举例：</p>
+<pre><code>    //第一个值为true，不会检查第二个值
+    true || alert(&quot;看我出不出来！！&quot;);  // 不会弹出 alert 框
+
+    //第一个值为false，会检查第二个值
+    false || alert(&quot;看我出不出来！！&quot;); // 可以弹出 alert 框</code></pre><p>（4）如果对<strong>非布尔值</strong>进行逻辑运算，则会<strong>先将其转换为布尔值</strong>，然后再操作。举例：</p>
+<pre><code>    var a = 10;
+    a = !a;
+    console.log(a);  // false
+    console.log(typeof a); // boolean</code></pre><p>上面的例子，我们可以看到，对非布尔值进行<code>!</code> 操作之后，返回结果为布尔值。</p>
+<h1 id="非布尔值的与或运算【重要】">非布尔值的与或运算【重要】</h1><blockquote>
+<p>之所以重要，是因为在实际开发中，我们经常用这种代码做容错处理。<br>非布尔值进行<strong>与或运算</strong>时，会先将其转换为布尔值，然后再运算，但返回结果是<strong>原值</strong>。比如说：</p>
+<pre><code>    var result = 5 &amp;&amp; 6; // 运算过程：true &amp;&amp; true;
+    console.log(&#39;result：&#39; + result); // 打印结果：6（也就是说最后面的那个值。）</code></pre><p>上方代码可以看到，虽然运算过程为布尔值的运算，但返回结果是原值。<br>那么，返回结果是哪个原值呢？我们来看一下。<br><strong>与运算</strong>的返回结果：（以两个非布尔值的运算为例）<br>        如果第一个值为true，则必然返回第二个值（所以说，如果所有的值都为true，则返回的是最后一个值）<br>        如果第一个值为false，则直接返回第一个值<br><strong>或运算</strong>的返回结果：（以两个非布尔值的运算为例）<br>        如果第一个值为true，则直接返回第一个值<br>        如果第一个值为false，则返回第二个值</p>
+</blockquote>
+<p>实际开发中，我们经常是这样来处理容错的：<br>当成功调用一个接口后，针对返回的数据 result，假设我们用变量a 接收。通常的写法是这样的：（这里我只是举个例子）</p>
+<pre><code>        if (result.resultCode == 0) {
+            var a = result &amp;&amp; result.data &amp;&amp; result.data.imgUrl;
+        }</code></pre><p><strong>赋值运算符</strong><br>可以将符号右侧的值赋值给符号左侧的变量。<br>举例：<br>        <code>+=</code>。a += 5 等价于 a = a + 5<br>        <code>-=</code>。a -= 5 等价于 a = a - 5<br>        <code>*=</code>。a *= 5 等价于 a = a * 5<br>        <code>/=</code>。a /= 5 等价于 a = a / 5<br>        <code>%=</code>。a %= 5 等价于 a = a % 5</p>
+<p><strong>关系运算符</strong><br>通过关系运算符可以比较两个值之间的大小关系，如果关系成立它会返回true，如果关系不成立则返回false。<br>关系运算符有很多种，比如：</p>
+<pre><code>        &gt;    大于号
+        &lt;    小于号
+        &gt;=     大于或等于
+        &lt;=  小于或等于
+        ==     等于
+        === 全等于
+        !=    不等于
+        !== 不全等于</code></pre><p><strong>关系运算符，得到的结果都是布尔值：要么是true，要么是false。</strong><br>举例如下：<br><code>var result = 5 &gt; 10; // false</code></p>
+<p><strong>非数值的比较</strong><br>（1）对于非数值进行比较时，会将其转换为数字然后再比较。<br>举例如下：</p>
+<pre><code>        console.log(1 &gt; true); //false
+        console.log(1 &gt;= true); //true
+        console.log(1 &gt; &quot;0&quot;); //true
+
+        //console.log(10 &gt; null); //true
+
+        //任何值和NaN做任何比较都是false
+
+        console.log(10 &lt;= &quot;hello&quot;); //false
+        console.log(true &gt; false); //true</code></pre><p>（2）特殊情况：如果符号两侧的值都是字符串时，<strong>不会</strong>将其转换为数字进行比较。比较两个字符串时，比较的是字符串的Unicode<strong>编码</strong>。【非常重要，这里是个大坑】<br>比较字符编码时，是一位一位进行比较。如果两位一样，则比较下一位，所以借用它可以来对英文进行排序。<br>PS：所以说，当你尝试去比较<code>&quot;123&quot;</code>和<code>&quot;56&quot;</code>这两个字符串时，你会发现，字符串&quot;56&quot;竟然比字符串&quot;123&quot;要大。也就是说，下面这样代码的打印结果，其实是true:（这个我们一定要注意，在日常开发中，很容易忽视）</p>
+<pre><code>        // 比较两个字符串时，比较的是字符串的字符编码，所以可能会得到不可预期的结果
+        console.log(&quot;56&quot; &gt; &quot;123&quot;);  // true</code></pre><p>因此：当我们在比较两个字符串型的数字时，<strong>一定一定要先转型</strong>，比如 <code>parseInt()</code>。<br>（3）任何值和NaN做任何比较都是false。</p>
+<p><strong><code>==</code>符号的强调</strong><br>注意<code>==</code>这个符号，它是<strong>判断是否等于</strong>，而不是赋值。<br>（1）<code>==</code>这个符号，还可以验证字符串是否相同。例如：<br><code>console.log(&quot;我爱你中国&quot; == &quot;我爱你中国&quot;);        //输出结果为true</code><br>（2）== 这个符号并不严谨，会将不同类型的东西，<strong>转为相同类型</strong>进行比较（大部分情况下，都是转换为数字）。例如：</p>
+<pre><code>    console.log(&quot;6&quot; == 6);        // 打印结果：true。这里的字符串&quot;6&quot;会先转换为数字6，然后再进行比较
+    console.log(true == &quot;1&quot;);   // 打印结果：true
+    console.log(0 == -0);       // 打印结果：true
+    console.log(null == 0);   // 打印结果：true</code></pre><p>（3）undefined 衍生自 null，所以这两个值做相等判断时，会返回true。<br><code>console.log(undefined == null);  //打印结果：true。</code><br>（4）NaN不和任何值相等，包括他本身。<br><code>console.log(NaN == NaN); //false</code><br>问题：那如果我想判断 b的值是否为NaN，该怎么办呢？<br>答案：可以通过isNaN()函数来判断一个值是否是NaN。举例：<br><code>console.log(isNaN(b)); //false</code><br>如上方代码所示，如果 b 为 NaN，则返回true；否则返回false。</p>
+<p><strong><code>===</code>全等符号的强调</strong><br>如果要保证<strong>完全等于</strong>，我们就要用三个等号<code>===</code>。<strong>全等不会做类型转换</strong>。例如：</p>
+<pre><code>            console.log(&quot;6&quot; === 6);        //false
+            console.log(6 === 6);        //true</code></pre><p>上述内容分析出：<br><code>==</code>两个等号，不严谨，&quot;6&quot;和6是true。<br><code>===</code>三个等号，严谨，&quot;6&quot;和6是false。<br>另外还有：<code>==</code>的反面是<code>!=</code>，<code>===</code>的反面是<code>!==</code>。例如：</p>
+<pre><code>            console.log(3 != 8);    //true
+            console.log(3 != &quot;3&quot;);    //false，因为3==&quot;3&quot;是true，所以反过来就是false。
+            console.log(3 !== &quot;3&quot;);    //true，应为3===&quot;3&quot;是false，所以反过来是true。</code></pre><p>&lt;&lt;Notes: This may make sense, but I prefer the normal way. --Cong Liu&gt;&gt;</p>
+<p><strong>三元运算符</strong><br>三元运算符也叫条件运算符。<br>语法：<br><code>条件表达式?语句1:语句2;</code></p>
+<p><strong>执行的流程：</strong><br>条件运算符在执行时，首先对条件表达式进行求值：<br>        如果该值为true，则执行语句1，并返回执行结果<br>        如果该值为false，则执行语句2，并返回执行结果<br>如果条件的表达式的求值结果是一个非布尔值，会将其转换为布尔值然后再运算。</p>
+<p><strong>运算符的优先级</strong><br>运算符的优先级如下：（越往上，优先级越高）</p>
+<pre><code>                .、[]、new
+                ()
+                ++、--
+                !、~、+（单目）、-（单目）、typeof、void、delete
+                %、*、/
+                +（双目）、-（双目）
+                &lt;&lt;、&gt;&gt;、&gt;&gt;&gt;
+                &lt;、&lt;=、&gt;、&gt;=
+                ==、!==、===
+                &amp;
+                ^
+                |
+                &amp;&amp;
+                ||
+                ?:
+                =、+=、-=、*=、/=、%=、&lt;&lt;=、&gt;&gt;=、&gt;&gt;&gt;=、&amp;=、^=、|=
+                ,</code></pre><p>备注：你在实际写代码的时候，如果不清楚哪个优先级更高，可以把括号运用上。</p>
+<p><strong>Unicode 编码表</strong></p>
+<blockquote>
+<p>这一段中，我们来讲引申的内容：Unicode编码的使用。<br>1、在字符串中可以使用转义字符输入Unicode编码。格式如下：<br>            <code>\u四位编码</code><br>举例如下：</p>
+<pre><code>    console.log(&quot;\u2600&quot;);  // 这里的 2600 采用的是16进制
+    console.log(&quot;\u2602&quot;);  // 这里的 2602 采用的是16进制。</code></pre><p>打印结果：<br><a href="https://camo.githubusercontent.com/234001b3c8d219243ad07f2d0cef395e814a11cf/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313231382e706e67">https://camo.githubusercontent.com/234001b3c8d219243ad07f2d0cef395e814a11cf/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313231382e706e67</a></p>
+</blockquote>
+<p>2、同样，我们可以在网页中使用Unicode编码。格式如下：<br><code>&amp;#编码;</code><br>PS：我们知道，Unicode编码采用的是16进制，但是，这里的编码需要使用10进制。<br>举例如下：<br><code>&lt;h1 style=&quot;font-size: 100px;&quot;&gt;&amp;#9860;&lt;/h1&gt;</code><br>打印结果：<br><a href="https://camo.githubusercontent.com/9e2b2303e812db04b4f9abbc7106c6e1d4bff86d/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313232362e706e67">https://camo.githubusercontent.com/9e2b2303e812db04b4f9abbc7106c6e1d4bff86d/687474703a2f2f696d672e736d79687661652e636f6d2f32303138313232325f313232362e706e67</a></p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fuckupc.github.io/post/2q4W2AMp2">
+              <h3 class="post-title">
+                变量的强制类型转换
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '48a1f04adf6a01060905',
+    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+    repo: 'fuckupc.github.io',
+    owner: 'fuckupc',
+    admin: ['fuckupc'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
