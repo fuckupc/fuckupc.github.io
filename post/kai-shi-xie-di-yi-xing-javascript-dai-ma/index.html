@@ -67,29 +67,23 @@
               
             </div>
             <div class="post-content">
-              <p><strong>JavaScript代码的书写位置</strong><br>（1）内嵌的方式：</p>
-<p>页面中，我们可以在<body>标签里放入<script type=”text/javascript”></script>标签对儿，并在<script>里书写JavaScript程序：</p>
+              <p><strong>JavaScript代码的书写位置</strong><br>（1）内嵌的方式：<br>页面中，我们可以在<body>标签里放入<script type=”text/javascript”></script>标签对儿，并在<script>里书写JavaScript程序：</p>
 <pre><code>    ```
     &lt;script type=&quot;text/javascript&quot;&gt;
 
     &lt;/script&gt;</code></pre><pre><code>text表示纯文本，因为JavaScript也是一个纯文本的语言。
-
 PS：在Sublime Text里，输入&lt;sc后，按tab键，可以自动补齐。
-
 （2）外链式：引入外部JavaScript文件（放到body标签里，可以和内嵌的js代码并列）
-
     `    &lt;script src=&quot;tool.js&quot;&gt;&lt;/script&gt;`
 
 **alert语句**
-我们要学习的第一个语句，就是alert语句。
-</code></pre><pre><code>    &lt;script type=&quot;text/javascript&quot;&gt;
+我们要学习的第一个语句，就是alert语句。</code></pre><pre><code>    &lt;script type=&quot;text/javascript&quot;&gt;
         alert(&quot;生命壹号&quot;);
     &lt;/script&gt;</code></pre><pre><code>alert（英文翻译为“警报”）的用途：弹出“警告框”。
 如果写了两个alert()语句的话，网页的效果是：弹出第一个警告框，点击确定后，继续弹出第二个警告框。
 
 **语法规则**
 学习程序，是有规律可循的，就是程序是有相同的部分，这些部分就是一种规定，不能更改，我们成为：语法。
-
 （1）JavaScript对换行、缩进、空格不敏感。每一条语句以分号结尾。
 代码一：</code></pre><pre><code>    &lt;script type=&quot;text/javascript&quot;&gt;
         alert(&quot;今天蓝天白云&quot;);
