@@ -100,12 +100,14 @@
         console.log(a + &#39;haha&#39;);  // 转换成 String 类型</code></pre><p><strong>方法二：调用toString()方法</strong><br>举例如下：<br>        <code>变量.toSting()</code><br>【重要】该方法<strong>不会影响到原变量</strong>，它会将转换的结果返回。当然我们还可以直接写成<code>a = a.toString()</code>，这样的话，就是直接修改原变量。</p>
 <p>注意：null和undefined这两个值没有toString()方法，所以它们不能用方法二。如果调用，会报错。</p>
 <p>另外，Number类型的变量，在调用toString()时，可以在方法中传递一个整数作为参数。此时它将会把数字转换为指定的进制，如果不指定则默认转换为10进制。例如：</p>
-<pre><code>                var a = 255;
-        //对于Number调用toString()时可以在方法中传递一个整数作为参数
-        //此时它将会把数字转换为指定的进制,如果**不指定则默认转换为10进制**
-        a = a.toString(2);
-        console.log(a);        // 11111111
-        console.log(typeof a); // string</code></pre><p><strong>方法三：使用String()函数</strong><br>格式如下：<br><code>String(变量)</code><br>使用String()函数做强制类型转换时：<br>对于Number和Boolean而言，实际上就是调用toString()方法。<br>但是对于null和undefined，就不会调用toString()方法。它会将 null 直接转换为 &quot;null&quot;。将 undefined 直接转换为 &quot;undefined&quot;。</p>
+<pre><code>var a = 255;
+
+//对于Number调用toString()时可以在方法中传递一个整数作为参数
+//此时它将会把数字转换为指定的进制,如果**不指定则默认转换为10进制**
+
+a = a.toString(2);
+console.log(a);        // 11111111
+console.log(typeof a); // string</code></pre><p><strong>方法三：使用String()函数</strong><br>格式如下：<br><code>String(变量)</code><br>使用String()函数做强制类型转换时：<br>对于Number和Boolean而言，实际上就是调用toString()方法。<br>但是对于null和undefined，就不会调用toString()方法。它会将 null 直接转换为 &quot;null&quot;。将 undefined 直接转换为 &quot;undefined&quot;。</p>
 <p><strong>prompt()：用户的输入</strong><br>我们在JS基础的第一篇里，就讲过，prompt()就是专门用来弹出能够让用户输入的对话框。重要的是：用户不管输入什么，都是字符串。</p>
 <h1 id="其他的数据类型 -- number">其他的数据类型 --&gt; Number</h1><p><strong>方式一：使用Number()函数<br>情况一：字符串 --&gt; 数字</strong><br>1.如果字符串中是纯数字，则直接将其转换为数字。<br>2.如果字符串中有非数字的内容，则转换为NaN。（此处可以看到Number()函数的局限性）<br>3.如果字符串是一个空串或者是一个全是空格的字符串，则转换为0。<br><strong>情况二：布尔 --&gt; 数字</strong><br>true 转成 1<br>false 转成 0<br><strong>情况三：null --&gt; 数字</strong><br>结果为：0<br><strong>情况四：undefined --&gt; 数字</strong><br>结果为：NaN</p>
 <p><strong>方式二：parseInt()：字符串 -&gt; 整数【重要】</strong></p>
