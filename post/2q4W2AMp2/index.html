@@ -1,84 +1,69 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>变量的强制类型转换 | Legend of Today</title>
-<meta name="description" content="By recording what have been learned,  master them you can.">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://fuckupc.github.io">
-        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
-        <h1 class="site-title">Legend of Today</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fuckupc.github.io">
+  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    Legend of Today
+  </h1>
+  <p class="site-description">
+    By recording what have been learned,  master them you can.
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-    </div>
-  </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="site-description">
-      By recording what have been learned,  master them you can.
-    </div>
-    <div class="site-footer">
-      Powered by Hve Notes
-    </div>
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">变量的强制类型转换</h2>
-            <div class="post-date">2019-03-13</div>
-            
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              变量的强制类型转换
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-03-13 ·
+              </time>
+              
+                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
+                  # Javascript
+                </a>
+              
+            </div>
             <div class="post-content">
               <p><strong>前言</strong><br>强制类型转换：将一个数据类型强制转换为其他的数据类型。</p>
 <p>类型转换主要指，将其他的数据类型，转换为：String、Number、Boolean。你会把某个数据类型转换成 null 或者 undefined 吗？不会，因为这样做，没有意义。</p>
@@ -88,14 +73,14 @@
         console.log(a + &#39;haha&#39;);  // 转换成 String 类型</code></pre><p><strong>方法二：调用toString()方法</strong><br>举例如下：<br>        <code>变量.toSting()</code><br>【重要】该方法<strong>不会影响到原变量</strong>，它会将转换的结果返回。当然我们还可以直接写成<code>a = a.toString()</code>，这样的话，就是直接修改原变量。</p>
 <p>注意：null和undefined这两个值没有toString()方法，所以它们不能用方法二。如果调用，会报错。</p>
 <p>另外，Number类型的变量，在调用toString()时，可以在方法中传递一个整数作为参数。此时它将会把数字转换为指定的进制，如果不指定则默认转换为10进制。例如：</p>
-<pre><code>var a = 255;
+<pre><code>            var a = 255;
 
-//对于Number调用toString()时可以在方法中传递一个整数作为参数
-//此时它将会把数字转换为指定的进制,如果**不指定则默认转换为10进制**
+            //对于Number调用toString()时可以在方法中传递一个整数作为参数
+            //此时它将会把数字转换为指定的进制,如果**不指定则默认转换为10进制**
 
-a = a.toString(2);
-console.log(a);        // 11111111
-console.log(typeof a); // string</code></pre><p><strong>方法三：使用String()函数</strong><br>格式如下：<br><code>String(变量)</code><br>使用String()函数做强制类型转换时：<br>对于Number和Boolean而言，实际上就是调用toString()方法。<br>但是对于null和undefined，就不会调用toString()方法。它会将 null 直接转换为 &quot;null&quot;。将 undefined 直接转换为 &quot;undefined&quot;。</p>
+            a = a.toString(2);
+            console.log(a);        // 11111111
+            console.log(typeof a); // string</code></pre><p><strong>方法三：使用String()函数</strong><br>格式如下：<br><code>String(变量)</code><br>使用String()函数做强制类型转换时：<br>对于Number和Boolean而言，实际上就是调用toString()方法。<br>但是对于null和undefined，就不会调用toString()方法。它会将 null 直接转换为 &quot;null&quot;。将 undefined 直接转换为 &quot;undefined&quot;。</p>
 <p><strong>prompt()：用户的输入</strong><br>我们在JS基础的第一篇里，就讲过，prompt()就是专门用来弹出能够让用户输入的对话框。重要的是：用户不管输入什么，都是字符串。</p>
 <h1 id="其他的数据类型 -- number">其他的数据类型 --&gt; Number</h1><p><strong>方式一：使用Number()函数<br>情况一：字符串 --&gt; 数字</strong><br>1.如果字符串中是纯数字，则直接将其转换为数字。<br>2.如果字符串中有非数字的内容，则转换为NaN。（此处可以看到Number()函数的局限性）<br>3.如果字符串是一个空串或者是一个全是空格的字符串，则转换为0。<br><strong>情况二：布尔 --&gt; 数字</strong><br>true 转成 1<br>false 转成 0<br><strong>情况三：null --&gt; 数字</strong><br>结果为：0<br><strong>情况四：undefined --&gt; 数字</strong><br>结果为：NaN</p>
 <p><strong>方式二：parseInt()：字符串 -&gt; 整数【重要】</strong></p>
@@ -106,14 +91,14 @@ console.log(typeof a); // string</code></pre><p><strong>方法三：使用String
             console.log(parseInt(&quot;aaa2017.01在公众号上写了6篇文章&quot;));  //打印结果：NaN</code></pre><p><strong>（2）自动带有截断小数的功能：取整，不四舍五入。</strong><br>例1：</p>
 <pre><code>            var a = parseInt(5.8) + parseInt(4.7);
             console.log(a);</code></pre><p>控制台输出：<br><code>9</code><br>（3）如果对非String使用parseInt()或parseFloat()，它会<strong>先将其转换为String</strong>然后再操作。<br>比如：</p>
-<pre><code>                var a = true;
-                console.log(parseInt(a));  //打印结果：NaN （因为是先将a转为字符串&quot;true&quot;，然后然后再操作）
-                var b = null;
-                console.log(parseInt(b));  //打印结果：NaN  （因为是先将b转为字符串&quot;null&quot;，然后然后再操作）    
-                var c = undefined;
-                console.log(parseInt(c));  //打印结果：NaN  （因为是先将b转为字符串&quot;undefined&quot;，然后然后再操作）
-                var d = 168.23;
-                console.log(parseInt(d));  //打印结果：168  （因为是先将c转为字符串&quot;168.23&quot;，然后然后再操作）</code></pre><p>（4）带两个参数时，表示进制转换。</p>
+<pre><code>            var a = true;
+            console.log(parseInt(a));  //打印结果：NaN （因为是先将a转为字符串&quot;true&quot;，然后然后再操作）
+            var b = null;
+            console.log(parseInt(b));  //打印结果：NaN  （因为是先将b转为字符串&quot;null&quot;，然后然后再操作）    
+            var c = undefined;
+            console.log(parseInt(c));  //打印结果：NaN  （因为是先将b转为字符串&quot;undefined&quot;，然后然后再操作）
+            var d = 168.23;
+            console.log(parseInt(d));  //打印结果：168  （因为是先将c转为字符串&quot;168.23&quot;，然后然后再操作）</code></pre><p>（4）带两个参数时，表示进制转换。</p>
 </blockquote>
 <p><strong>parseFloat()：字符串 --&gt; 浮点数（小数）</strong></p>
 <blockquote>
@@ -126,82 +111,57 @@ console.log(typeof a); // string</code></pre><p><strong>方法三：使用String
 <pre><code>            a = &quot;070&quot;;
             a = parseInt(a,10); //转换成十进制</code></pre>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="tag">
-                    Javascript
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://fuckupc.github.io/post/bian-liang-de-shu-ju-lei-xing">
-                  <h3 class="post-title">
-                    变量的数据类型
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
+          </article>
         </div>
-      </div>
-    </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fuckupc.github.io/post/bian-liang-de-shu-ju-lei-xing">
+              <h3 class="post-title">
+                变量的数据类型
+              </h3>
+            </a>
+          </div>  
+        
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-<script type="application/javascript">
+<div id="gitalk-container"></div>
 
-AOS.init();
+<script>
 
-hljs.initHighlightingOnLoad()
+  var gitalk = new Gitalk({
+    clientID: '48a1f04adf6a01060905',
+    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+    repo: 'fuckupc.github.io',
+    owner: 'fuckupc',
+    admin: ['fuckupc'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+  gitalk.render('gitalk-container')
 
 </script>
 
+          
 
-  
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
+          
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes
+</div>
 
-      var gitalk = new Gitalk({
-        clientID: '48a1f04adf6a01060905',
-        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-        repo: 'fuckupc.github.io',
-        owner: 'fuckupc',
-        admin: ['fuckupc'],
-        id: location.pathname,      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
 
-      gitalk.render('gitalk-container')
-
-    </script>
-  
-
-  
-
-
-
-
+      </div>
+    </div>
   </body>
 </html>
