@@ -80,7 +80,7 @@
 <p><strong>返回结果：</strong><br><code>typeof 数值</code> 的返回结果：number<br><code>typeof 字符串</code> 的返回结果：string<br><code>typeof 布尔型</code> 的返回结果：boolean<br><code>typeof undefined</code> 的返回结果：undefined<br><code>typeof null</code> 的返回结果：object</p>
 <p>在JavaScript中，只要是数，就是 number 数值型的。无论整浮、浮点数（即小数）、无论大小、无论正负，都是 number 类型的。</p>
 <p><strong>数值型：Number</strong><br>在JS中所有的数值都是Number类型，包括整数和浮点数（小数）。</p>
-<pre><code>var a = 100;    //定义了一个变量a，并且赋值100
+<pre><code>    var a = 100;    //定义了一个变量a，并且赋值100
     console.log(typeof a);    //输出a变量的类型</code></pre><p>上方代码的输出结果为：<br><code>number</code></p>
 <p><strong>数值范围：</strong><br>由于内存的限制，ECMAScript 并不能保存世界上所有的数值。<br>最大值：Number.MAX_VALUE，这个值为： 1.7976931348623157e+308<br>最小值：Number.MIN_VALUE，这个值为： 5e-324<br>如果使用Number表示的变量超过了最大值，则会返回Infinity。<br>无穷大（正无穷）：Infinity<br>无穷小（负无穷）：-Infinity<br>注意：typeof Infinity的返回结果是number。</p>
 <p><strong>NaN和isNaN()函数：</strong><br>（1）NaN：是一个特殊的数字，表示Not a Number，非数值。比如：</p>
