@@ -73,7 +73,7 @@ console.log(a + &#39;&#39;);  // 转换成 String 类型
 console.log(a + &#39;haha&#39;);  // 转换成 String 类型</code></pre><p><strong>方法二：调用toString()方法</strong><br>举例如下：<br><code>变量.toSting()</code><br>【重要】该方法<strong>不会影响到原变量</strong>，它会将转换的结果返回。当然我们还可以直接写成<code>a = a.toString()</code>，这样的话，就是直接修改原变量。</p>
 <p>注意：null和undefined这两个值没有toString()方法，所以它们不能用方法二。如果调用，会报错。</p>
 <p>另外，Number类型的变量，在调用toString()时，可以在方法中传递一个整数作为参数。此时它将会把数字转换为指定的进制，如果不指定则默认转换为10进制。例如：</p>
-<pre><code>                var a = 255;
+<pre><code>var a = 255;
         //对于Number调用toString()时可以在方法中传递一个整数作为参数
         //此时它将会把数字转换为指定的进制,如果**不指定则默认转换为10进制**
         a = a.toString(2);
@@ -84,12 +84,12 @@ console.log(a + &#39;haha&#39;);  // 转换成 String 类型</code></pre><p><str
 <p><strong>方式二：parseInt()：字符串 -&gt; 整数【重要】</strong></p>
 <blockquote>
 <p>parseInt()是专门用来对付字符串的。<br>parseInt()的作用是将字符串中的有效的整数内容转为数字。parse表示“转换”，Int表示“整数”（注意Int的拼写）。例如：<br><code>parseInt(&quot;5&quot;);</code><br>得到的结果是数字5。<br><strong>parseInt()还具有以下特性：</strong><br>（1）<strong>只保留字符串最开头的数字</strong>，后面的中文自动消失。例如：</p>
-<pre><code>        console.log(parseInt(&quot;2017在公众号上写了6篇文章&quot;));  //打印结果：2017
+<pre><code>console.log(parseInt(&quot;2017在公众号上写了6篇文章&quot;));  //打印结果：2017
     console.log(parseInt(&quot;2017.01在公众号上写了6篇文章&quot;));  //打印结果仍是：2017   （说明只会取整数）
     console.log(parseInt(&quot;aaa2017.01在公众号上写了6篇文章&quot;));  //打印结果：NaN</code></pre><p><strong>（2）自动带有截断小数的功能：取整，不四舍五入。</strong><br>例1：</p>
 <pre><code>var a = parseInt(5.8) + parseInt(4.7);
 console.log(a);</code></pre><p>控制台输出：<br><code>9</code><br>（3）如果对非String使用parseInt()或parseFloat()，它会<strong>先将其转换为String</strong>然后再操作。<br>比如：</p>
-<pre><code>        var a = true;
+<pre><code>var a = true;
     console.log(parseInt(a));  //打印结果：NaN （因为是先将a转为字符串&quot;true&quot;，然后然后再操作）
     var b = null;
     console.log(parseInt(b));  //打印结果：NaN  （因为是先将b转为字符串&quot;null&quot;，然后然后再操作）    
@@ -101,7 +101,7 @@ console.log(a);</code></pre><p>控制台输出：<br><code>9</code><br>（3）�
 <p><strong>parseFloat()：字符串 --&gt; 浮点数（小数）</strong></p>
 <blockquote>
 <p>parseFloat()是专门用来对付字符串的。<br>parseFloat()的作用是：将字符串转换为<strong>浮点数</strong>。<br>parseFloat()和parseInt()的作用类似，不同的是，parseFloat()可以获得有效的小数部分。<br>代码举例：</p>
-<pre><code>        var a = &#39;123.456.789px&#39;;
+<pre><code>var a = &#39;123.456.789px&#39;;
     console.log(parseFloat(a)); // 打印结果：123.456</code></pre><p><strong>转换为Boolean</strong><br>将其他的数据类型转换为Boolean，可以使用Boolean()函数。<br>情况一：数字 --&gt; 布尔。除了0和NaN，其余的都是true。<br>情况二：字符串 ---&gt; 布尔。除了空串，其余的都是true。<br>情况三：null和undefined都会转换为false。<br>情况四：对象也会转换为true。<br>PS：上面的这就种情况，很重要，开发中会经常用到。</p>
 </blockquote>
 <p><strong>其他进制的数字</strong><br>        16进制的数字，以0x开头<br>        8进制的数字，以0开头<br>        2进制的数字，0b开头（不是所有的浏览器都支持：chrome和火狐支持，IE不支持）<br>比如070这个字符串，如果我调用parseInt()转成数字时，有些浏览器会当成8进制解析，有些会当成10进制解析。</p>
