@@ -1,0 +1,197 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>11. this | Legend of Today</title>
+<link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
+<link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fuckupc.github.io">
+  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    Legend of Today
+  </h1>
+  <p class="site-description">
+    “You must unlearn what you have learned.”         – Yoda
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              11. this
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-03-16 ·
+              </time>
+              
+                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
+                  # Javascript
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <h1 id="this">this</h1><p>解析器在调用函数每次都会向函数内部传递进一个隐含的参数，这个隐含的参数就是this，this指向的是一个对象，这个对象我们称为函数执行的 上下文对象。<br><strong>根据函数的调用方式的不同，this会指向不同的对象：【重要】</strong><br>        1.以函数的形式调用时，this永远都是window。比如fun();相当于window.fun();<br>        2.以方法的形式调用时，this是调用方法的那个对象<br>        3.以构造函数的形式调用时，this是新创建的那个对象<br>        4.使用call和apply调用时，this是指定的那个对象</p>
+<p><strong>针对第1条的举例：</strong></p>
+<pre><code>    function fun() {
+        console.log(this);
+        console.log(this.name);
+    }
+    var obj1 = {
+        name: &quot;smyh&quot;,
+        sayName: fun
+    };
+
+    var obj2 = {
+        name: &quot;vae&quot;,
+        sayName: fun
+    };
+    var name = &quot;全局的name属性&quot;;
+    //以函数形式调用，this是window
+    fun();       //可以理解成 window.fun()</code></pre><p>打印结果：</p>
+<pre><code>        Window
+        全局的name属性</code></pre><p>上面的举例可以看出，this指向的是window对象，所以 this.name 指的是全局的name。</p>
+<p><strong>第2条的举例：</strong></p>
+<pre><code>        function fun() {
+            console.log(this);
+            console.log(this.name);
+        }
+        var obj1 = {
+            name: &quot;smyh&quot;,
+            sayName: fun
+        };
+        var obj2 = {
+            name: &quot;vae&quot;,
+            sayName: fun
+        };
+        var name = &quot;全局的name属性&quot;;
+        //以方法的形式调用，this是调用方法的对象
+        obj2.sayName();</code></pre><p>打印结果：</p>
+<pre><code>    Object
+    vae</code></pre><p>上面的举例可以看出，this指向的是 对象 obj2 ，所以 this.name 指的是 obj2.name。</p>
+<p><strong>箭头函数中this的指向：</strong><br>ES6中的箭头函数并不会使用上面四条标准的绑定规则，而是会继承外层函数调用的this绑定（无论this绑定到什么）。</p>
+<h1 id="类数组 arguments">类数组 arguments</h1><blockquote>
+<p>这部分，小白可能看不懂。所以，这一段，暂时可以忽略。<br>在调用函数时，浏览器每次都会传递进两个隐含的参数：<br>        1.函数的上下文对象 this<br>        2.<strong>封装实参的对象</strong> arguments<br>例如：<br>```<br>            function foo() {<br>                    console.log(arguments);<br>                    console.log(typeof arguments);<br>            }</p>
+</blockquote>
+<pre><code>        foo();</code></pre><pre><code>arguments是一个类数组对象，它可以通过索引来操作数据，也可以获取长度。
+**arguments代表的是实参**。在调用函数时，我们所传递的实参都会在arguments中保存。有个讲究的地方是：**arguments只在函数中使用**。
+
+**1、返回函数实参的个数：arguments.length**
+arguments.length可以用来获取**实参的长度**。
+举例：</code></pre><pre><code>        fn(2,4);
+        fn(2,4,6);
+        fn(2,4,6,8);
+        function fn(a,b) {
+                console.log(arguments);
+                console.log(fn.length);         //获取形参的个数
+                console.log(arguments.length);  //获取实参的个数
+                console.log(&quot;----------------&quot;);
+        }</code></pre><pre><code>打印结果：
+![](https://fuckupc.github.io/post-images/1552746954834.PNG)
+我们即使不定义形参，也可以通过arguments来使用实参（只不过比较麻烦）：arguments[0] 表示第一个实参、arguments[1] 表示第二个实参...
+
+**2、返回正在执行的函数：arguments.callee**
+arguments里边有一个属性叫做callee，这个属性对应一个函数对象，就是当前正在指向的函数对象。</code></pre><pre><code>        function fun() {
+                console.log(arguments.callee == fun); //打印结果为true
+        }
+        fun(&quot;hello&quot;);</code></pre><pre><code>在使用函数**递归**调用时，推荐使用arguments.callee代替函数名本身。
+
+**3、arguments可以修改元素**
+之所以说arguments是伪数组，是因为：arguments**可以修改元素，但不能改变数组的长短**。举例：</code></pre><pre><code>        fn(2,4);
+        fn(2,4,6);
+        fn(2,4,6,8);
+
+        function fn(a,b) {
+                arguments[0] = 99;  //将实参的第一个数改为99
+                arguments.push(8);  //此方法不通过，因为无法增加元素
+        }</code></pre><p>```</p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fuckupc.github.io/post/UcV8tPE2x">
+              <h3 class="post-title">
+                10. 作用域
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '48a1f04adf6a01060905',
+    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+    repo: 'fuckupc.github.io',
+    owner: 'fuckupc',
+    admin: ['fuckupc'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
