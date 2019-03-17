@@ -1,0 +1,241 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>13. 原型对象 | Legend of Today</title>
+<link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
+<link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://fuckupc.github.io">
+  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
+  </a>
+  <h1 class="site-title">
+    Legend of Today
+  </h1>
+  <p class="site-description">
+    “You must unlearn what you have learned.”         – Yoda
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+  </div>
+</div>
+
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              13. 原型对象
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2019-03-16 ·
+              </time>
+              
+                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
+                  # Javascript
+                </a>
+              
+            </div>
+            <div class="post-content">
+              <h1 id="原型对象">原型对象</h1><p><strong>原型的引入</strong></p>
+<pre><code>        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            //向对象中添加一个方法
+            this.sayName = function () {
+                console.log(&quot;我是&quot; + this.name);
+            }
+        }
+
+        //创建一个Person的实例
+        var per = new Person(&quot;孙悟空&quot;, 18, &quot;男&quot;);
+        var per2 = new Person(&quot;猪八戒&quot;, 28, &quot;男&quot;);
+        per.sayName();
+        per2.sayName();
+
+        console.log(per.sayName == per2.sayName);  //打印结果为false</code></pre><p><strong>分析如下：</strong></p>
+<p>上方代码中，我们的sayName方法是写在构造函数 Person 内部的，然后在两个实例中进行了调用。造成的结果是，<strong>构造函数每执行一次，就会给每个实例创建一个新的 sayName 方法</strong>。也就是说，每个实例的sayName都是唯一的。因此，最后一行代码的打印结果为false。<br>按照上面这种写法，假设创建10000个对象实例，就会创建10000个 sayName 方法。这种写法肯定是不合适的。我们为何不让所有的对象共享同一个方法呢？<br>还有一种方式是，将sayName方法在全局作用域中定义：（不建议。原因看注释）</p>
+<pre><code>        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            //向对象中添加一个方法
+            this.sayName = fun;
+        }
+
+        //将sayName方法在全局作用域中定义
+        /*
+         * 将函数定义在全局作用域，污染了全局作用域的命名空间
+         *  而且定义在全局作用域中也很不安全
+         */
+        function fun() {
+            alert(&quot;Hello大家好，我是:&quot; + this.name);
+        };</code></pre><p>比较好的方式是，在原型中添加sayName方法：</p>
+<pre><code>    Person.prototype.sayName = function(){
+        alert(&quot;Hello大家好，我是:&quot;+this.name);
+    };</code></pre><p>这也就引入了我们本文要讲的「原型」。</p>
+<h1 id="原型prototype的概念">原型prototype的概念</h1><p><strong>认识1：</strong></p>
+<p>我们所创建的每一个函数，解析器都会向函数中添加一个属性 prototype。这个属性对应着一个对象，这个对象就是我们所谓的原型对象。<br>如果函数作为普通函数调用prototype没有任何作用，当函数以构造函数的形式调用时，它所创建的实例对象中都会有一个隐含的属性，指向该构造函数的原型，我们可以通过<strong>proto</strong>来访问该属性。<br>代码举例：</p>
+<pre><code>        // 定义构造函数
+        function Person() {}
+
+        var per1 = new Person();
+        var per2 = new Person();
+
+        console.log(Person.prototype); // 打印结果：[object object]
+
+        console.log(per1.__proto__ == Person.prototype); // 打印结果：true</code></pre><p>上方代码的最后一行：打印结果表明，实例.<code>__proto__</code> 和 <code>构造函数.prototype</code>都指的是原型对象。</p>
+<p><strong>认识2：</strong><br>原型对象就相当于一个公共的区域，所有同一个类的实例都可以访问到这个原型对象，我们可以将对象中共有的内容，统一设置到原型对象中。<br>以后我们创建构造函数时，可以将这些对象共有的属性和方法，统一添加到构造函数的原型对象中，这样就不用分别为每一个对象添加，也不会影响到全局作用域，就可以使每个对象都具有这些属性和方法了。</p>
+<p><strong>认识3：</strong><br>使用<code>in</code>检查对象中是否含有某个属性时，如果对象中没有但是<strong>原型中</strong>有，也会返回true。<br>可以使用对象的<code>hasOwnProperty()</code>来检查<strong>对象自身</strong>中是否含有该属性。</p>
+<p><strong>原型链</strong><br>原型对象也是对象，所以它也有原型，当我们使用或访问一个对象的属性或方法时：</p>
+<pre><code>        它会先在对象自身中寻找，如果有则直接使用；
+        如果没有则会去原型对象中寻找，如果找到则直接使用；
+        如果没有则去原型的原型中寻找，直到找到Object对象的原型。
+        Object对象的原型没有原型，如果在Object原型中依然没有找到，则返回 null</code></pre><p><strong>总结</strong><br>第一次接触「原型」和「原型链」的时候，会比较难理解。多接触几次，再回过头来看，就慢慢熟悉了。</p>
+<h1 id="对象的 tostring() 方法">对象的 toString() 方法</h1><p>我们先来看下面这段代码：</p>
+<pre><code>            function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            }
+
+            var per1 = new Person(&quot;vae&quot;, 26, &quot;男&quot;);
+
+            console.log(&quot;per1 = &quot; + per1);
+            console.log(&quot;per1 = &quot; + per1.toString());</code></pre><p>打印结果：</p>
+<pre><code>            per1 = [object Object]
+            per1 = [object Object]</code></pre><p>上面的代码中，我们尝试打印实例 per1 的内部信息，但是发现，无论是打印 <code>per1</code> 还是打印 <code>per1.toString()</code>，结果都是<code>object</code>，这是为啥呢？分析如下：<br>            当我们直接在页面中打印一个对象时，其实是输出了对象的toString()方法的返回值。<br>            如果我们希望在打印对象时，不输出<code>[object Object]</code>，可以手动为对象添加一个<code>toString()</code>方法。意思是，重写 toString() 方法。</p>
+<p>重写 toString() 方法，具体做法如下：</p>
+<pre><code>            function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            }
+
+            //方式一：重写 Person 原型的toString方法。针对 Person 的所有实例生效
+            Person.prototype.toString = function() {
+                return (
+                    &quot;Person[name=&quot; +
+                    this.name +
+                    &quot;,age=&quot; +
+                    this.age +
+                    &quot;,gender=&quot; +
+                    this.gender +
+                    &quot;]&quot;
+                );
+            };
+
+            // 方式二：仅重写实例 per1 的 toString方法。但是这种写法，只对 per1 生效， 对 per2 无效
+            /*
+            per1.toString = function() {
+                return (
+                    &quot;Person[name=&quot; +
+                    this.name +
+                    &quot;,age=&quot; +
+                    this.age +
+                    &quot;,gender=&quot; +
+                    this.gender +
+                    &quot;]&quot;
+                );
+            };
+            */
+
+            var per1 = new Person(&quot;smyh&quot;, 26, &quot;男&quot;);
+
+            var per2 = new Person(&quot;vae&quot;, 30, &quot;男&quot;);
+
+            console.log(&quot;per1 = &quot; + per1);
+            console.log(&quot;per2 = &quot; + per2.toString());</code></pre><p>打印结果：</p>
+<pre><code>        per1 = Person[name=smyh,age=26,gender=男]
+        per2 = Person[name=vae,age=30,gender=男]</code></pre><p>代码分析：</p>
+<p>上面的代码中，仔细看注释。我们重写了 Person 原型的 toString()，这样的话，可以保证对 Person 的所有实例生效。</p>
+<p>从这个例子，我们可以看出<code>prototype</code>的作用。</p>
+<h1 id="js的垃圾回收（gc）机制">JS的垃圾回收（GC）机制</h1><p>程序运行过程中会产生垃圾，这些垃圾积攒过多以后，会导致程序运行的速度过慢。所以我们需要一个垃圾回收的机制，来处理程序运行过程中产生垃圾。</p>
+<p>当一个对象没有任何的变量或属性对它进行引用时，此时我们将永远无法操作该对象，此时这种对象就是一个垃圾，这种对象过多会占用大量的内存空间，导致程序运行变慢，所以这种垃圾必须进行清理。</p>
+<p>上面这句话，也可以这样理解：如果堆内存中的对象，没有任何变量指向它时，这个堆内存里的对象就会成为垃圾。</p>
+<p>JS拥有自动的垃圾回收机制，会自动将这些垃圾对象从内存中销毁。我们不需要也不能进行垃圾回收的操作。我们仅仅需要做的是：如果你不再使用该对象，那么，将改对象的引用设置为 null 即可。</p>
+
+            </div>
+          </article>
+        </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://fuckupc.github.io/post/7uHiPwDyw">
+              <h3 class="post-title">
+                12. 对象的创建&amp;构造函数
+              </h3>
+            </a>
+          </div>  
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '48a1f04adf6a01060905',
+    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+    repo: 'fuckupc.github.io',
+    owner: 'fuckupc',
+    admin: ['fuckupc'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+    
+        <div class="site-footer">
+  Powered by Hve Notes
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
