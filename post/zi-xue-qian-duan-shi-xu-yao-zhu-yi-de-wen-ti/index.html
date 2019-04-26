@@ -1,65 +1,84 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>00.自学需要注意的问题 | Legend of Today</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    “You must unlearn what you have learned.”         – Yoda
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
   </div>
 </div>
 
-      
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              00.自学需要注意的问题
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-03-13 ·
-              </time>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">00.自学需要注意的问题</h2>
+            <div class="post-date">2019-03-13</div>
+            
             <div class="post-content">
               <ol>
 <li>自学者容易学习速度过快导致理解不够深刻。</li>
@@ -71,57 +90,81 @@
 <ol>
 <li>从github上找到高质量的一个完整的学习流程，并坚持按照此流程进行，不可中途对计划有较大改动，细微修改也要根据招聘需求。</li>
 </ol>
-<p>我选择的是:<a href="https://github.com/qianguyihao/Web">https://github.com/qianguyihao/Web</a></p>
+<p>我选择的是:https://github.com/qianguyihao/Web</p>
 <ol start="3">
 <li>每天规定学习内容和数量，并保证掌握，其中的疑问，一定要及时查找答案，或者记下来，日后复习时再进行答疑。</li>
 <li>每过一段时间，一个月左右，检查招聘信息，同时阅读一些本领域的前沿技术新闻，保持与世接轨，与时俱进。</li>
 <li>定期锻炼，健康饮食，规律作息。你的基础都没了，技术再厉害都没意义。</li>
 </ol>
-<p>一位来自Discord上ZTM社区的前辈的建议：<br>                我觉得没必要上来就做到“精通”JS，毕竟工作很多年的人也不敢说精通。一些很简单的概念，你写多代码就自然了解了。我建议还是把时间花在学习web技能上。<br>                首先要明确的是，目标是尽快找到工作，而工作的最低要求是能完成基本的要求，也就是能写页面。<br>这样就有几个阶段<br>                第一个阶段，就是学习基本的web前端技能，html/css/js，DOM,BOM,AJAX...，这个阶段完成的标准是，能利用html,css,js完成一个简单的网站。<br>                第二个阶段，是学习一些框架和工具，比如vue(国内比较火)或者react，以及周边的工具，vue全家桶或者react全家桶，webpack这些，做到会用就好。这个阶段的目标是能使用框架熟练的完成一个web项目。<br>                第三个阶段，是完善前端的技能，往外扩展。学习一些nodejs和后端知识，这样能了解整个web开发流程。目标是能完整上线一个web项目，前后端都自己做。<br>                理论上讲，学完第二个阶段就已经能出去找找机会了。</p>
+<p>一位来自Discord上ZTM社区的前辈的建议：
+我觉得没必要上来就做到“精通”JS，毕竟工作很多年的人也不敢说精通。一些很简单的概念，你写多代码就自然了解了。我建议还是把时间花在学习web技能上。
+首先要明确的是，目标是尽快找到工作，而工作的最低要求是能完成基本的要求，也就是能写页面。
+这样就有几个阶段
+第一个阶段，就是学习基本的web前端技能，html/css/js，DOM,BOM,AJAX...，这个阶段完成的标准是，能利用html,css,js完成一个简单的网站。
+第二个阶段，是学习一些框架和工具，比如vue(国内比较火)或者react，以及周边的工具，vue全家桶或者react全家桶，webpack这些，做到会用就好。这个阶段的目标是能使用框架熟练的完成一个web项目。
+第三个阶段，是完善前端的技能，往外扩展。学习一些nodejs和后端知识，这样能了解整个web开发流程。目标是能完整上线一个web项目，前后端都自己做。
+理论上讲，学完第二个阶段就已经能出去找找机会了。</p>
 
             </div>
-          </article>
+            
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-    
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '48a1f04adf6a01060905',
-    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-    repo: 'fuckupc.github.io',
-    owner: 'fuckupc',
-    admin: ['fuckupc'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-    
-        <div class="site-footer">
-  Powered by Hve Notes
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

@@ -1,396 +1,345 @@
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>Javascript | Legend of Today</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    “You must unlearn what you have learned.”         – Yoda
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
   </div>
 </div>
 
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：#Javascript
-            </h2> 
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <h2 class="current-tag">标签: Javascript</h2>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/cG-NvvuF5">
+                  <h2 class="post-title">13. 原型对象</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-16
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/7uHiPwDyw">
+                  <h2 class="post-title">12. 对象的创建&amp;构造函数</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-16
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/TZAxkRK7r">
+                  <h2 class="post-title">11. this</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-16
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/UcV8tPE2x">
+                  <h2 class="post-title">10. 作用域</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-16
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/vgHd2S64J">
+                  <h2 class="post-title">09. 函数</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-15
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/mHPhFePin">
+                  <h2 class="post-title">08. 基本数据类型&amp;引用数据类型</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-15
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/WULuH-7oK">
+                  <h2 class="post-title">07.对象简介和对象的基本操作</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-14
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/8WfjHeAfM">
+                  <h2 class="post-title">06.流程控制语句：循环结构（for和while）</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/X05IrHcTK">
+                  <h2 class="post-title">05.流程控制语句：选择结构（if和switch）</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/GhT0zlOEQ">
+                  <h2 class="post-title">04.运算符</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/2q4W2AMp2">
+                  <h2 class="post-title">03.变量的强制类型转换</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/bian-liang-de-shu-ju-lei-xing">
+                  <h2 class="post-title">02-2.变量的数据类型</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/bian-liang">
+                  <h2 class="post-title">02-1.变量</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/kai-shi-xie-di-yi-xing-javascript-dai-ma">
+                  <h2 class="post-title">01-3.开始写第一行JavaScript代码</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/javascript-jie-shao">
+                  <h2 class="post-title">01-2.JavaScript介绍</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://fuckupc.github.io/post/javascript-bei-jing">
+                  <h2 class="post-title">01-1.JavaScript背景</h2>
+                </a>
+                <div class="post-date">
+                  2019-03-13
+                </div>
+                <div class="post-abstract">
+                  
+                </div>
+              </div>
+              
+            </article>
+          
+
+          <div class="pagination-container">
+  
+  
+</div>
+
         </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/cG-NvvuF5">
-        <h2 class="post-title">13. 原型对象</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-16 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/7uHiPwDyw">
-        <h2 class="post-title">12. 对象的创建&amp;构造函数</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-16 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/TZAxkRK7r">
-        <h2 class="post-title">11. this</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-16 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/UcV8tPE2x">
-        <h2 class="post-title">10. 作用域</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-16 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/vgHd2S64J">
-        <h2 class="post-title">09. 函数</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-15 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/mHPhFePin">
-        <h2 class="post-title">08. 基本数据类型&amp;引用数据类型</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-15 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/WULuH-7oK">
-        <h2 class="post-title">07.对象简介和对象的基本操作</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-14 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/8WfjHeAfM">
-        <h2 class="post-title">06.流程控制语句：循环结构（for和while）</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/X05IrHcTK">
-        <h2 class="post-title">05.流程控制语句：选择结构（if和switch）</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/GhT0zlOEQ">
-        <h2 class="post-title">04.运算符</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/2q4W2AMp2">
-        <h2 class="post-title">03.变量的强制类型转换</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/bian-liang-de-shu-ju-lei-xing">
-        <h2 class="post-title">02-2.变量的数据类型</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/bian-liang">
-        <h2 class="post-title">02-1.变量</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/kai-shi-xie-di-yi-xing-javascript-dai-ma">
-        <h2 class="post-title">01-3.开始写第一行JavaScript代码</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/javascript-jie-shao">
-        <h2 class="post-title">01-2.JavaScript介绍</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-    <article class="post">
-      <a href="https://fuckupc.github.io/post/javascript-bei-jing">
-        <h2 class="post-title">01-1.JavaScript背景</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2019-03-13 ·
-        </time>
-        
-          <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tag">
-            # Javascript
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        
-      </di>
-    </article>
-  
-</div>
-
-        <div class="pagination-container">
-  
-  
-</div>
-
-        <div class="site-footer">
-  Powered by Hve Notes
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
   </body>
 </html>

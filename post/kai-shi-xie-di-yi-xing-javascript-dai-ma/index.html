@@ -1,163 +1,237 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>01-3.开始写第一行JavaScript代码 | Legend of Today</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    “You must unlearn what you have learned.”         – Yoda
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
   </div>
 </div>
 
-      
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              01-3.开始写第一行JavaScript代码
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-03-13 ·
-              </time>
-              
-                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
-                  # Javascript
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">01-3.开始写第一行JavaScript代码</h2>
+            <div class="post-date">2019-03-13</div>
+            
             <div class="post-content">
-              <p><strong>JavaScript代码的书写位置</strong><br>（1）内嵌的方式：<br>页面中，我们可以在<code>&lt;body&gt;</code>标签里放入<code>&lt;script type=”text/javascript”&gt;&lt;/script&gt;</code>标签对儿，并在<code>&lt;script&gt;</code>里书写JavaScript程序：<br>text表示纯文本，因为JavaScript也是一个纯文本的语言。<br>PS：在Sublime Text里，输入<code>&lt;sc</code> 后，按tab键，可以自动补齐。<br>（2）外链式：引入外部JavaScript文件（放到body标签里，可以和内嵌的js代码并列）</p>
-<p><strong>alert语句</strong><br>我们要学习的第一个语句，就是alert语句。</p>
-<p>alert（英文翻译为“警报”）的用途：弹出“警告框”。<br>如果写了两个alert()语句的话，网页的效果是：弹出第一个警告框，点击确定后，继续弹出第二个警告框。</p>
-<p><strong>语法规则</strong><br>学习程序，是有规律可循的，就是程序是有相同的部分，这些部分就是一种规定，不能更改，我们成为：语法。<br>（1）JavaScript对换行、缩进、空格不敏感。每一条语句以分号结尾。<br>代码一：</p>
-<pre><code>        &lt;script type=&quot;text/javascript&quot;&gt;
-            alert(&quot;今天蓝天白云&quot;);
-            alert(&quot;我很高兴&quot;);
-        &lt;/script&gt;</code></pre><p>等价于代码二：</p>
-<pre><code>        &lt;script type=&quot;text/javascript&quot;&gt;
-            alert(&quot;今天蓝天白云&quot;);alert(&quot;我很高兴&quot;);
-        &lt;/script&gt;</code></pre><p>备注：每一条语句末尾要加上分号，虽然分号不是必须加的，如果不写分号，浏览器会自动添加，但是会消耗一些系统资源。<br>（2）所有的符号，都是英语的。比如括号、引号、分号。<br>如果你用的是搜狗拼音，建议不要用shift切换中英文（可以在搜狗软件里进行设置），不然很容易输入中文的分号；建议用ctrl+space切换中英文输入法。<br>（3）严格区分大小写</p>
-<p><strong>注释</strong><br>我们不要把html、CSS、JavaScript三者的注释格式搞混淆了。<br>（1）html的注释：</p>
+              <p><strong>JavaScript代码的书写位置</strong>
+（1）内嵌的方式：
+页面中，我们可以在<code>&lt;body&gt;</code>标签里放入<code>&lt;script type=”text/javascript”&gt;&lt;/script&gt;</code>标签对儿，并在<code>&lt;script&gt;</code>里书写JavaScript程序：
+text表示纯文本，因为JavaScript也是一个纯文本的语言。
+PS：在Sublime Text里，输入<code>&lt;sc</code> 后，按tab键，可以自动补齐。
+（2）外链式：引入外部JavaScript文件（放到body标签里，可以和内嵌的js代码并列）</p>
+<p><strong>alert语句</strong>
+我们要学习的第一个语句，就是alert语句。</p>
+<p>alert（英文翻译为“警报”）的用途：弹出“警告框”。
+如果写了两个alert()语句的话，网页的效果是：弹出第一个警告框，点击确定后，继续弹出第二个警告框。</p>
+<p><strong>语法规则</strong>
+学习程序，是有规律可循的，就是程序是有相同的部分，这些部分就是一种规定，不能更改，我们成为：语法。
+（1）JavaScript对换行、缩进、空格不敏感。每一条语句以分号结尾。
+代码一：</p>
+<pre><code>		&lt;script type=&quot;text/javascript&quot;&gt;
+			alert(&quot;今天蓝天白云&quot;);
+			alert(&quot;我很高兴&quot;);
+		&lt;/script&gt;
+</code></pre>
+<p>等价于代码二：</p>
+<pre><code>		&lt;script type=&quot;text/javascript&quot;&gt;
+			alert(&quot;今天蓝天白云&quot;);alert(&quot;我很高兴&quot;);
+		&lt;/script&gt;
+</code></pre>
+<p>备注：每一条语句末尾要加上分号，虽然分号不是必须加的，如果不写分号，浏览器会自动添加，但是会消耗一些系统资源。
+（2）所有的符号，都是英语的。比如括号、引号、分号。
+如果你用的是搜狗拼音，建议不要用shift切换中英文（可以在搜狗软件里进行设置），不然很容易输入中文的分号；建议用ctrl+space切换中英文输入法。
+（3）严格区分大小写</p>
+<p><strong>注释</strong>
+我们不要把html、CSS、JavaScript三者的注释格式搞混淆了。
+（1）html的注释：</p>
 <!-- 我是注释  -->
 <p>（2）CSS的注释：</p>
 <pre><code>&lt;style type=&quot;text/css&quot;&gt;
-    /*
-        我是注释
-    */
-    p{
-        font-weight: bold;
-        font-style: italic;
-        color: red;
-    }
-&lt;/style&gt;</code></pre><p>注意：CSS只有/* */这种注释，没有//这种注释。而且注释要写在<style>标签里面才算生效哦。<br>（3）JavaScript的注释：</p>
+	/*
+		我是注释
+	*/
+	p{
+		font-weight: bold;
+		font-style: italic;
+		color: red;
+	}
+&lt;/style&gt;
+</code></pre>
+<p>注意：CSS只有/* */这种注释，没有//这种注释。而且注释要写在<style>标签里面才算生效哦。
+（3）JavaScript的注释：</p>
 <pre><code>单行注释：
 // 我是注释
 多行注释：
 /*
-    多行注释1
-    多行注释2
-*/</code></pre><p>备注：sublime中，单行注释的快捷键是ctrl+/，多行注释的快捷键是ctrl+shift+/。</p>
-<h1 id="javascript 网页中输出信息的写法">Javascript 网页中输出信息的写法</h1><pre><code>**弹出警告框：alert(&quot;&quot;)**</code></pre><p>我们在上一段讲到了alert语句，这里不再赘述。<br>    <strong>控制台输出：console.log(&quot;&quot;)</strong><br><code>console.log(&quot;&quot;)</code>表示在控制台中输出。console表示“控制台”，log表示“输出”。</p>
+	多行注释1
+	多行注释2
+*/
+</code></pre>
+<p>备注：sublime中，单行注释的快捷键是ctrl+/，多行注释的快捷键是ctrl+shift+/。</p>
+<h1 id="javascript-网页中输出信息的写法">Javascript 网页中输出信息的写法</h1>
+<pre><code>**弹出警告框：alert(&quot;&quot;)**
+</code></pre>
+<p>我们在上一段讲到了alert语句，这里不再赘述。
+<strong>控制台输出：console.log(&quot;&quot;)</strong>
+<code>console.log(&quot;&quot;)</code>表示在控制台中输出。console表示“控制台”，log表示“输出”。</p>
 <p>控制台在Chrome浏览器的F12中。控制台是工程师、程序员调试程序的地方。程序员经常使用这条语句输出一些东西，来测试程序是否正确。</p>
-<p>**    用户输入：prompt()语句**<br><code>prompt()</code>就是专门用来弹出能够让用户输入的对话框。用得少，测试的时候可能会用。</p>
+<p>**	用户输入：prompt()语句**
+<code>prompt()</code>就是专门用来弹出能够让用户输入的对话框。用得少，测试的时候可能会用。</p>
 <p>JS代码如下：</p>
-<pre><code>            var a = prompt(&quot;请随便输入点什么东西吧&quot;);
-            console.log(a);</code></pre><p>上方代码中，用户输入的内容，将被传递到变量 a 里面。</p>
+<pre><code>			var a = prompt(&quot;请随便输入点什么东西吧&quot;);
+			console.log(a);
+</code></pre>
+<p>上方代码中，用户输入的内容，将被传递到变量 a 里面。</p>
 <p><code>prompt()</code>语句中，用户不管输入什么内容，都是字符串。</p>
 <p><strong>alert和prompt的区别：</strong></p>
-<pre><code>    alert(&quot;从前有座山&quot;);                //直接使用，不需要变量
-    var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，来接收用户输入的值</code></pre>
+<pre><code>	alert(&quot;从前有座山&quot;);                //直接使用，不需要变量
+	var a = prompt(&quot;请输入一个数字&quot;);   // 必须用一个变量，来接收用户输入的值
+</code></pre>
+
             </div>
-          </article>
+            
+              <div class="tag-container">
+                
+                  <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="tag">
+                    Javascript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/javascript-jie-shao">
+                  <h3 class="post-title">
+                    01-2.JavaScript介绍
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://fuckupc.github.io/post/javascript-jie-shao">
-              <h3 class="post-title">
-                01-2.JavaScript介绍
-              </h3>
-            </a>
-          </div>  
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '48a1f04adf6a01060905',
-    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-    repo: 'fuckupc.github.io',
-    owner: 'fuckupc',
-    admin: ['fuckupc'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-    
-        <div class="site-footer">
-  Powered by Hve Notes
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

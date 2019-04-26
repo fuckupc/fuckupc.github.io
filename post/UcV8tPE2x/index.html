@@ -1,153 +1,235 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>10. 作用域 | Legend of Today</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    “You must unlearn what you have learned.”         – Yoda
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
   </div>
 </div>
 
-      
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              10. 作用域
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-03-16 ·
-              </time>
-              
-                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
-                  # Javascript
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">10. 作用域</h2>
+            <div class="post-date">2019-03-16</div>
+            
             <div class="post-content">
               <blockquote>
 <p>作用域、变量提升的知识点，面试时会经常遇到。</p>
 </blockquote>
-<h1 id="作用域（scope）的概念">作用域（Scope）的概念</h1><p>作用域指一个变量的作用范围。在js中，一共有两种作用域：<br>        全局作用域<br>        函数作用域</p>
-<h1 id="全局作用域">全局作用域</h1><p>直接编写在script标签中的JS代码，都在全局作用域。<br>        全局作用域在页面打开时创建，在页面关闭时销毁。<br>        在全局作用域中有一个全局对象window，它代表的是一个浏览器的窗口，它由浏览器创建我们可以直接使用。<br>在全局作用域中：<br>        创建的<strong>变量</strong>都会作为window对象的属性保存。<br>        创建的<strong>函数</strong>都会作为window对象的方法保存。<br>全局作用域中的变量都是全局变量，在页面的任意的部分都可以访问的到。</p>
-<h1 id="变量的声明提前（变量提升）">变量的声明提前（变量提升）</h1><p>使用var关键字声明的变量（ 比如<code>var a = 1</code>），<strong>会在所有的代码执行之前被声明</strong>（但是不会赋值），但是如果声明变量时不是用var关键字（比如直接写<code>a = 1</code>），则变量不会被声明提前。<br>举例1：</p>
-<pre><code>            console.log(a);
-            var a = 123;</code></pre><p>打印结果：undefined。（说明变量 a 被 被提前声明了，只是尚未被赋值）<br>举例2：</p>
+<h1 id="作用域scope的概念">作用域（Scope）的概念</h1>
+<p>作用域指一个变量的作用范围。在js中，一共有两种作用域：
+全局作用域
+函数作用域</p>
+<h1 id="全局作用域">全局作用域</h1>
+<p>直接编写在script标签中的JS代码，都在全局作用域。
+全局作用域在页面打开时创建，在页面关闭时销毁。
+在全局作用域中有一个全局对象window，它代表的是一个浏览器的窗口，它由浏览器创建我们可以直接使用。
+在全局作用域中：
+创建的<strong>变量</strong>都会作为window对象的属性保存。
+创建的<strong>函数</strong>都会作为window对象的方法保存。
+全局作用域中的变量都是全局变量，在页面的任意的部分都可以访问的到。</p>
+<h1 id="变量的声明提前变量提升">变量的声明提前（变量提升）</h1>
+<p>使用var关键字声明的变量（ 比如<code>var a = 1</code>），<strong>会在所有的代码执行之前被声明</strong>（但是不会赋值），但是如果声明变量时不是用var关键字（比如直接写<code>a = 1</code>），则变量不会被声明提前。
+举例1：</p>
+<pre><code>			console.log(a);
+			var a = 123;
+</code></pre>
+<p>打印结果：undefined。（说明变量 a 被 被提前声明了，只是尚未被赋值）
+举例2：</p>
 <pre><code>    console.log(a);
-    a = 123;   //此时a相当于window.a</code></pre><p>程序会报错：<br><img src="https://fuckupc.github.io/post-images/1552716370012.png" alt=""></p>
-<h1 id="函数的声明提前">函数的声明提前</h1><p><strong>函数声明：</strong><br>使用函数声明的形式创建的函数<code>function foo(){}</code>，<strong>会被声明提前</strong>。<br>也就是说，整个函数会在所有的代码执行之前就被<strong>创建完成</strong>，所以我们可以在函数声明之前，调用函数。<br>代码举例：</p>
+    a = 123;   //此时a相当于window.a
+</code></pre>
+<p>程序会报错：
+<img src="https://fuckupc.github.io/post-images/1552716370012.png" alt=""></p>
+<h1 id="函数的声明提前">函数的声明提前</h1>
+<p><strong>函数声明：</strong>
+使用函数声明的形式创建的函数<code>function foo(){}</code>，<strong>会被声明提前</strong>。
+也就是说，整个函数会在所有的代码执行之前就被<strong>创建完成</strong>，所以我们可以在函数声明之前，调用函数。
+代码举例：</p>
 <pre><code>    fn1();  // 虽然 函数 fn1 的定义是在后面，但是因为被提前声明了， 所以此处可以调用函数
     function fn1() {
-        console.log(&#39;我是函数 fn1&#39;);
-    }</code></pre><p><strong>函数表达式：</strong><br>使用函数表达式创建的函数<code>var foo = function(){}</code>，<strong>不会被声明提前</strong>，所以不能在声明前调用。<br>很好理解，因为此时foo被声明了，且为undefined，并没有把<code>function(){}</code>赋值给 foo。<br>所以说，下面的例子，会报错：<br><img src="https://fuckupc.github.io/post-images/1552717006660.PNG" alt=""></p>
-<h1 id="函数作用域">函数作用域</h1><p><strong>调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁。</strong><br>每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的。<br>在函数作用域中可以访问到全局作用域的变量，在全局作用域中无法访问到函数作用域的变量。</p>
-<p><strong>作用域的上下级关系：</strong><br>当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用（<strong>就近原则</strong>）。如果没有则向上一级作用域中寻找，直到找到全局作用域；如果全局作用域中依然没有找到，则会报错ReferenceError。<br>在函数中要访问全局变量可以使用window对象。（比如说，全局作用域和函数作用域都定义了变量a，如果想访问全局变量，可以使用<code>window.a</code>）</p>
-<p><strong>提醒1：</strong><br>在函数作用域也有声明提前的特性：<br>        使用var关键字声明的变量，会在函数中所有的代码执行之前被声明<br>        函数声明也会在函数中所有的代码执行之前执行<br>因此，在函数中，没有var声明的变量都是<strong>全局变量</strong>，而且并不会提前声明。<br>举例1：</p>
+        console.log('我是函数 fn1');
+    }
+</code></pre>
+<p><strong>函数表达式：</strong>
+使用函数表达式创建的函数<code>var foo = function(){}</code>，<strong>不会被声明提前</strong>，所以不能在声明前调用。
+很好理解，因为此时foo被声明了，且为undefined，并没有把<code>function(){}</code>赋值给 foo。
+所以说，下面的例子，会报错：
+<img src="https://fuckupc.github.io/post-images/1552717006660.PNG" alt=""></p>
+<h1 id="函数作用域">函数作用域</h1>
+<p><strong>调用函数时创建函数作用域，函数执行完毕以后，函数作用域销毁。</strong>
+每调用一次函数就会创建一个新的函数作用域，他们之间是互相独立的。
+在函数作用域中可以访问到全局作用域的变量，在全局作用域中无法访问到函数作用域的变量。</p>
+<p><strong>作用域的上下级关系：</strong>
+当在函数作用域操作一个变量时，它会先在自身作用域中寻找，如果有就直接使用（<strong>就近原则</strong>）。如果没有则向上一级作用域中寻找，直到找到全局作用域；如果全局作用域中依然没有找到，则会报错ReferenceError。
+在函数中要访问全局变量可以使用window对象。（比如说，全局作用域和函数作用域都定义了变量a，如果想访问全局变量，可以使用<code>window.a</code>）</p>
+<p><strong>提醒1：</strong>
+在函数作用域也有声明提前的特性：
+使用var关键字声明的变量，会在函数中所有的代码执行之前被声明
+函数声明也会在函数中所有的代码执行之前执行
+因此，在函数中，没有var声明的变量都是<strong>全局变量</strong>，而且并不会提前声明。
+举例1：</p>
 <pre><code>    var a = 1;
     function foo() {
         console.log(a);
         a = 2;     // 此处的a相当于window.a
     }
     foo();
-    console.log(a);   //打印结果是2</code></pre><p>上方代码中，foo()的打印结果是<code>1</code>。如果去掉第一行代码，打印结果是<code>Uncaught ReferenceError: a is not defined</code></p>
-<p><strong>提醒2：</strong>定义形参就相当于在函数作用域中声明了变量。</p>
-<pre><code>            function fun6(e) { // 这个函数中，因为有了形参 e，此时就相当于在函数内部的第一行代码里，写了 var e;
-            console.log(e);
-            }
-            fun6();  //打印结果为 undefined
-            fun6(123);//打印结果为123</code></pre>
+    console.log(a);   //打印结果是2
+</code></pre>
+<p>上方代码中，foo()的打印结果是<code>1</code>。如果去掉第一行代码，打印结果是<code>Uncaught ReferenceError: a is not defined</code></p>
+<p>**提醒2：**定义形参就相当于在函数作用域中声明了变量。</p>
+<pre><code>			function fun6(e) { // 这个函数中，因为有了形参 e，此时就相当于在函数内部的第一行代码里，写了 var e;
+			console.log(e);
+			}
+			fun6();  //打印结果为 undefined
+			fun6(123);//打印结果为123
+</code></pre>
+
             </div>
-          </article>
+            
+              <div class="tag-container">
+                
+                  <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="tag">
+                    Javascript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/vgHd2S64J">
+                  <h3 class="post-title">
+                    09. 函数
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://fuckupc.github.io/post/vgHd2S64J">
-              <h3 class="post-title">
-                09. 函数
-              </h3>
-            </a>
-          </div>  
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '48a1f04adf6a01060905',
-    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-    repo: 'fuckupc.github.io',
-    owner: 'fuckupc',
-    admin: ['fuckupc'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-    
-        <div class="site-footer">
-  Powered by Hve Notes
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

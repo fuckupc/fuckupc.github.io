@@ -1,97 +1,127 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>02-1.变量 | Legend of Today</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    “You must unlearn what you have learned.”         – Yoda
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
   </div>
 </div>
 
-      
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              02-1.变量
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-03-13 ·
-              </time>
-              
-                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
-                  # Javascript
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">02-1.变量</h2>
+            <div class="post-date">2019-03-13</div>
+            
             <div class="post-content">
-              <p><strong>字面量：数字和字符串</strong><br>“字面量”即常量，是固定值，不可改变。看见什么，它就是什么。</p>
+              <p><strong>字面量：数字和字符串</strong>
+“字面量”即常量，是固定值，不可改变。看见什么，它就是什么。</p>
 <p>简单的字面量有2种：数字、字符串。</p>
 <p>（1）数值的字面量非常简单，写上去就行了，不需要任何的符号。例如：</p>
-<p>1    alert(886);  //886是数字，所以不需要加引号。<br>（2）字符串的字面量也很简单，但一定要加上引号。可以是单词、句子等。</p>
+<p>1	alert(886);  //886是数字，所以不需要加引号。
+（2）字符串的字面量也很简单，但一定要加上引号。可以是单词、句子等。</p>
 <p>温馨提示：100是数字，&quot;100&quot;是字符串。</p>
-<p><strong>总结</strong><br>字面量都可以直接使用，但是我们一般不会直接使用字面量。</p>
+<p><strong>总结</strong>
+字面量都可以直接使用，但是我们一般不会直接使用字面量。</p>
 <p>如果直接使用字面量的话，非常麻烦。比如说，多个地方要用到同一个字面量，还不如事先定义一个变量，用来保存字面量。</p>
 <p>变量更加方便我们使用，所以在开发中都是通过变量去保存一个字面量，而不会直接使用字面量。</p>
-<h1 id="变量">变量</h1><p><strong>变量的概念</strong><br>变量：变量可以用来保存字面量，而且变量的值可以任意改变。</p>
-<p><strong>变量的定义和赋值</strong><br>在js中使用var关键字来声明一个变量。</p>
+<h1 id="变量">变量</h1>
+<p><strong>变量的概念</strong>
+变量：变量可以用来保存字面量，而且变量的值可以任意改变。</p>
+<p><strong>变量的定义和赋值</strong>
+在js中使用var关键字来声明一个变量。</p>
 <p>变量举例如下：</p>
 <p><code>var a = 100;</code></p>
-<pre><code>var是英语“variant”变量的缩写。后面要加一个空格，空格后面的东西就是“变量名”：</code></pre><p>定义变量：var就是一个关键字，用来定义变量。所谓关键字，就是有特殊功能的小词语。关键字后面一定要有空格隔开。</p>
+<pre><code>var是英语“variant”变量的缩写。后面要加一个空格，空格后面的东西就是“变量名”：
+</code></pre>
+<p>定义变量：var就是一个关键字，用来定义变量。所谓关键字，就是有特殊功能的小词语。关键字后面一定要有空格隔开。</p>
 <p>变量的赋值：等号表示赋值，将等号右边的值，赋给左边的变量。</p>
 <p>变量名：我们可以给变量任意的取名字。</p>
 <p>PS：在JavaScript中，永远都是用var来定义变量（在ES6 之前），这和C、Java等语言不同。</p>
 <p>变量要先定义，才能使用。比如，我们不设置变量，直接输出：</p>
 <pre><code>&lt;script type=&quot;text/javascript&quot;&gt;
-    console.log(a);
-&lt;/script&gt;</code></pre><p>控制台将会报错：</p>
+	console.log(a);
+&lt;/script&gt;
+</code></pre>
+<p>控制台将会报错：</p>
 <p><code>a is not defined</code></p>
 <p>正确写法：</p>
 <pre><code>var a;   // 定义
 a = 100;  //赋值
-console.log(a);  //输出100</code></pre><p>有经验的程序员，会把定义和赋值写在一起：</p>
+console.log(a);  //输出100
+</code></pre>
+<p>有经验的程序员，会把定义和赋值写在一起：</p>
 <pre><code>var a = 100;    //定义，并且赋值100
-console.log(a);  //输出100</code></pre><p><strong>变量的命名规范</strong><br>变量名有命名规范：只能由英语字母、数字、下划线、美元符号$构成，且不能以数字开头，并且不能是JavaScript保留字。</p>
+console.log(a);  //输出100
+</code></pre>
+<p><strong>变量的命名规范</strong>
+变量名有命名规范：只能由英语字母、数字、下划线、美元符号$构成，且不能以数字开头，并且不能是JavaScript保留字。</p>
 <p>大写字母是可以使用的，并且大小写敏感。也就是说A和a是两个变量。</p>
 <p>我们来整理一下<strong>变量的命名规则</strong>：</p>
 <p>1.建议用驼峰命名规则：getElementById/matherAndFather/aaaOrBbbAndCcc</p>
@@ -101,63 +131,89 @@ console.log(a);  //输出100</code></pre><p><strong>变量的命名规范</stron
 <p>5.不用使用脚本语言中保留的关键字及保留字作为变量名。</p>
 <p>6.变量名区分大小写(javascript是区分大小写的语言)。</p>
 <p>7.汉语可以作为变量名。但是不建议使用，因为 low。</p>
-<p><strong>标识符</strong><br>标识符：在JS中所有的可以由我们自主命名的都可以称之为标识符。</p>
+<p><strong>标识符</strong>
+标识符：在JS中所有的可以由我们自主命名的都可以称之为标识符。</p>
 <p>例如：变量名、函数名、属性名都是属于标识符。</p>
 <p>标识符的命名规则和变量的命令规则是一样的。看上面一段就可以了。</p>
 <p>重点要注意的是：标识符不能使用脚本语言中保留的关键字及保留字。</p>
 
             </div>
-          </article>
+            
+              <div class="tag-container">
+                
+                  <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="tag">
+                    Javascript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/kai-shi-xie-di-yi-xing-javascript-dai-ma">
+                  <h3 class="post-title">
+                    01-3.开始写第一行JavaScript代码
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://fuckupc.github.io/post/kai-shi-xie-di-yi-xing-javascript-dai-ma">
-              <h3 class="post-title">
-                01-3.开始写第一行JavaScript代码
-              </h3>
-            </a>
-          </div>  
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '48a1f04adf6a01060905',
-    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-    repo: 'fuckupc.github.io',
-    owner: 'fuckupc',
-    admin: ['fuckupc'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-    
-        <div class="site-footer">
-  Powered by Hve Notes
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

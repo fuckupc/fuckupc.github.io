@@ -1,186 +1,301 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>09. 函数 | Legend of Today</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    “You must unlearn what you have learned.”         – Yoda
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
   </div>
 </div>
 
-      
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              09. 函数
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-03-15 ·
-              </time>
-              
-                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
-                  # Javascript
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">09. 函数</h2>
+            <div class="post-date">2019-03-15</div>
+            
             <div class="post-content">
-              <h1 id="函数的介绍">函数的介绍</h1><p>函数：就是将一些功能或语句进行<strong>封装</strong>，在需要的时候，通过<strong>调用</strong>的形式，执行这些语句。<br>        <strong>函数也是一个对象</strong><br>        使用<code>typeof</code>检查一个函数对象时，会返回function<br><strong>函数的作用：</strong><br>        将大量重复的语句写在函数里，以后需要这些语句的时候，可以直接调用函数，避免重复劳动。<br>        简化编程，让编程模块化。<br>来看个例子：</p>
-<pre><code>    console.log(&quot;你好&quot;);
-    sayHello();    // 调用函数
+              <h1 id="函数的介绍">函数的介绍</h1>
+<p>函数：就是将一些功能或语句进行<strong>封装</strong>，在需要的时候，通过<strong>调用</strong>的形式，执行这些语句。
+<strong>函数也是一个对象</strong>
+使用<code>typeof</code>检查一个函数对象时，会返回function
+<strong>函数的作用：</strong>
+将大量重复的语句写在函数里，以后需要这些语句的时候，可以直接调用函数，避免重复劳动。
+简化编程，让编程模块化。
+来看个例子：</p>
+<pre><code>	console.log(&quot;你好&quot;);
+	sayHello();	// 调用函数
 
-    // 定义函数
-    function sayHello(){
-        console.log(&quot;欢迎&quot;);
-        console.log(&quot;welcome&quot;);
-    }</code></pre><h1 id="函数的定义和调用">函数的定义和调用</h1><p><strong>第一步：函数的定义</strong><br><strong>方式一</strong>：使用<code>函数声明</code>来创建一个函数。语法：</p>
-<pre><code>        function 函数名([形参1,形参2...形参N]){  // 备注：语法中的中括号，表示“可选”
-            语句...
-        }</code></pre><p>举例：</p>
-<pre><code>        function sum(a, b){
-            return a+b;
-        }</code></pre><p>解释如下：<br>        function：是一个关键字。中文是“函数”、“功能”。<br>        函数名字：命名规定和变量的命名规定一样。只能是字母、数字、下划线、美元符号，不能以数字开头。<br>        参数：可选。<br>        大括号里面，是这个函数的语句。<br>PS：在有些编辑器中，方法写完之后，我们在方法的前面输入<code>/**</code>，然后回车，会发现，注释的格式会自动补齐。<br><strong>方式二</strong>：使用<code>函数表达式</code>来创建一个函数。语法：</p>
-<pre><code>        var 函数名  = function([形参1,形参2...形参N]){
-            语句....
-        }</code></pre><p>举例：</p>
-<pre><code>        var fun3 = function() {
-            console.log(&quot;我是匿名函数中封装的代码&quot;);
-        };</code></pre><p>从方式二的举例中可以看出：所谓的“函数表达式”，其实就是将匿名函数赋值给一个变量。</p>
+	// 定义函数
+	function sayHello(){
+		console.log(&quot;欢迎&quot;);
+		console.log(&quot;welcome&quot;);
+	}
+</code></pre>
+<h1 id="函数的定义和调用">函数的定义和调用</h1>
+<p><strong>第一步：函数的定义</strong>
+<strong>方式一</strong>：使用<code>函数声明</code>来创建一个函数。语法：</p>
+<pre><code>		function 函数名([形参1,形参2...形参N]){  // 备注：语法中的中括号，表示“可选”
+			语句...
+		}
+</code></pre>
+<p>举例：</p>
+<pre><code>		function sum(a, b){
+			return a+b;
+		}
+</code></pre>
+<p>解释如下：
+function：是一个关键字。中文是“函数”、“功能”。
+函数名字：命名规定和变量的命名规定一样。只能是字母、数字、下划线、美元符号，不能以数字开头。
+参数：可选。
+大括号里面，是这个函数的语句。
+PS：在有些编辑器中，方法写完之后，我们在方法的前面输入<code>/**</code>，然后回车，会发现，注释的格式会自动补齐。
+<strong>方式二</strong>：使用<code>函数表达式</code>来创建一个函数。语法：</p>
+<pre><code>		var 函数名  = function([形参1,形参2...形参N]){
+			语句....
+		}
+</code></pre>
+<p>举例：</p>
+<pre><code>		var fun3 = function() {
+			console.log(&quot;我是匿名函数中封装的代码&quot;);
+		};
+</code></pre>
+<p>从方式二的举例中可以看出：所谓的“函数表达式”，其实就是将匿名函数赋值给一个变量。</p>
 <p>当然，我们还有<strong>方式三</strong>：使用构造函数来创建一个对象。这种方式，用的少。</p>
-<p><strong>第二步：函数的调用</strong><br>函数调用的语法：</p>
-<pre><code>    函数名字();</code></pre><h1 id="函数的参数：形参和实参">函数的参数：形参和实参</h1><p>函数的参数包括形参和实参。来看下面的图就懂了：<br><img src="https://fuckupc.github.io/post-images/1552661293613.png" alt=""><br>注意：实际参数和形式参数的个数，要相同。<br>假设我们定义一个求和的函数。<br><strong>形参：</strong><br>        可以在函数的<code>()</code>中来指定一个或多个形参。<br>        多个形参之间使用<code>,</code>隔开，声明形参就相当于在函数内部声明了对应的变量，但是并不赋值。<br><strong>实参：</strong><br>        在调用函数时，可以在<code>()</code>中指定实参。<br>        实参将会赋值给函数中对应的形参。<br>举例：</p>
-<pre><code>        // 调用函数
-        sum(3,4);
-        sum(&quot;3&quot;,4);
-        sum(&quot;Hello&quot;,&quot;World&quot;);
+<p><strong>第二步：函数的调用</strong>
+函数调用的语法：</p>
+<pre><code>	函数名字();
+</code></pre>
+<h1 id="函数的参数形参和实参">函数的参数：形参和实参</h1>
+<p>函数的参数包括形参和实参。来看下面的图就懂了：
+<img src="https://fuckupc.github.io/post-images/1552661293613.png" alt="">
+注意：实际参数和形式参数的个数，要相同。
+假设我们定义一个求和的函数。
+<strong>形参：</strong>
+可以在函数的<code>()</code>中来指定一个或多个形参。
+多个形参之间使用<code>,</code>隔开，声明形参就相当于在函数内部声明了对应的变量，但是并不赋值。
+<strong>实参：</strong>
+在调用函数时，可以在<code>()</code>中指定实参。
+实参将会赋值给函数中对应的形参。
+举例：</p>
+<pre><code>		// 调用函数
+		sum(3,4);
+		sum(&quot;3&quot;,4);
+		sum(&quot;Hello&quot;,&quot;World&quot;);
 
-        // 定义函数：求和
-        function sum(a, b) {
-            console.log(a + b);
-        }</code></pre><p><strong>实参的类型：</strong><br>函数的实参可以是任意的数据类型。<br>调用函数时解析器不会检查实参的类型，所以要注意，是否有可能会接收到非法的参数，如果有可能则需要对参数进行类型的检查。</p>
-<p><strong>实参的数量：</strong><br>调用函数时，解析器也不会检查实参的数量：<br>        多余实参不会被赋值<br>        如果实参的数量少于形参的数量，则没有对应实参的形参将是undefined。例如：<br><img src="https://fuckupc.github.io/post-images/1552661665907.png" alt=""></p>
-<h1 id="函数的返回值">函数的返回值</h1><p>举例：</p>
-<pre><code>        console.log(sum(3, 4));
-        //函数：求和
-        function sum(a, b) {
-            return a + b;
-        }</code></pre><p>return的作用是结束方法。<br>注意：<br>        return后的值将会作为函数的执行结果返回，可以定义一个变量，来接收该结果。<br>        在函数中return后的语句都不会执行（函数在执行完 return 语句之后停止并立即退出）<br>        如果return语句后不跟任何值，就相当于返回一个undefined<br>        如果函数中不写return，则也会返回undefined<br>        返回值可以是任意的数据类型，可以是对象，也可以是函数。</p>
-<h1 id="函数名、函数体和函数加载问题（重要，请记住）">函数名、函数体和函数加载问题（重要，请记住）</h1><p>我们要记住：<strong>函数名 == 整个函数</strong>。举例：</p>
-<pre><code>            console.log(fn) == console.log(function fn(){alert(1)});
+		// 定义函数：求和
+		function sum(a, b) {
+			console.log(a + b);
+		}
+</code></pre>
+<p><strong>实参的类型：</strong>
+函数的实参可以是任意的数据类型。
+调用函数时解析器不会检查实参的类型，所以要注意，是否有可能会接收到非法的参数，如果有可能则需要对参数进行类型的检查。</p>
+<p><strong>实参的数量：</strong>
+调用函数时，解析器也不会检查实参的数量：
+多余实参不会被赋值
+如果实参的数量少于形参的数量，则没有对应实参的形参将是undefined。例如：
+<img src="https://fuckupc.github.io/post-images/1552661665907.png" alt=""></p>
+<h1 id="函数的返回值">函数的返回值</h1>
+<p>举例：</p>
+<pre><code>		console.log(sum(3, 4));
+		//函数：求和
+		function sum(a, b) {
+			return a + b;
+		}
+</code></pre>
+<p>return的作用是结束方法。
+注意：
+return后的值将会作为函数的执行结果返回，可以定义一个变量，来接收该结果。
+在函数中return后的语句都不会执行（函数在执行完 return 语句之后停止并立即退出）
+如果return语句后不跟任何值，就相当于返回一个undefined
+如果函数中不写return，则也会返回undefined
+返回值可以是任意的数据类型，可以是对象，也可以是函数。</p>
+<h1 id="函数名-函数体和函数加载问题重要请记住">函数名、函数体和函数加载问题（重要，请记住）</h1>
+<p>我们要记住：<strong>函数名 == 整个函数</strong>。举例：</p>
+<pre><code>			console.log(fn) == console.log(function fn(){alert(1)});
 
-            //定义fn方法
-            function fn(){
-                    alert(1)
-            };</code></pre><p>我们知道，当我们在调用一个函数时，通常使用<code>函数()</code>这种格式；但此时，我们是直接使用<code>函数</code>这种格式，它的作用相当于整个函数。</p>
+			//定义fn方法
+			function fn(){
+					alert(1)
+			};
+</code></pre>
+<p>我们知道，当我们在调用一个函数时，通常使用<code>函数()</code>这种格式；但此时，我们是直接使用<code>函数</code>这种格式，它的作用相当于整个函数。</p>
 <p><strong>函数的加载问题</strong>：JS加载的时候，只加载函数名，不加载函数体。所以如果想使用内部的成员变量，需要调用函数。</p>
-<h1 id="fn() 和 fn 的区别【重要】">fn() 和 fn 的区别【重要】</h1><pre><code>    `fn()`：调用函数。相当于获取了函数的返回值。
-    `fn`：函数对象。相当于直接获取了函数对象。</code></pre><h1 id="立即执行函数">立即执行函数</h1><p>现有匿名函数如下：</p>
-<pre><code>        function(a, b) {
-            console.log(&quot;a = &quot; + a);
-            console.log(&quot;b = &quot; + b);
-        };</code></pre><p>立即执行函数如下：</p>
-<pre><code>        (function(a, b) {
-            console.log(&quot;a = &quot; + a);
-            console.log(&quot;b = &quot; + b);
-        })(123, 456);</code></pre><p>立即执行函数：函数定义完，立即被调用，这种函数叫做立即执行函数。<br>立即执行函数往往只会执行一次。为什么呢？因为没有变量保存它，执行完了之后，就找不到它了。</p>
-<h1 id="方法">方法</h1><p>函数也可以称为对象的属性。<strong>如果一个函数作为一个对象的属性保存，那么我们称这个函数是这个对象的方法。</strong><br>调用这个函数就说调用对象的方法（method）。相比于方法，它只是名称上的区别，并没有其他的区别。<br>函数举例：</p>
-<pre><code>        // 调用函数
-        fn();</code></pre><p>方法举例：</p>
-<pre><code>        // 调用方法
-        obj.fn();</code></pre><p>我们可以这样说，如果直接是<code>fn()</code>，那就说明是函数调用。如果是发现<code>XX.fn()</code>的这种形式，那就说明是<strong>方法</strong>调用。</p>
+<h1 id="fn-和-fn-的区别重要">fn() 和 fn 的区别【重要】</h1>
+<pre><code>	`fn()`：调用函数。相当于获取了函数的返回值。
+	`fn`：函数对象。相当于直接获取了函数对象。
+</code></pre>
+<h1 id="立即执行函数">立即执行函数</h1>
+<p>现有匿名函数如下：</p>
+<pre><code>		function(a, b) {
+			console.log(&quot;a = &quot; + a);
+			console.log(&quot;b = &quot; + b);
+		};
+</code></pre>
+<p>立即执行函数如下：</p>
+<pre><code>		(function(a, b) {
+			console.log(&quot;a = &quot; + a);
+			console.log(&quot;b = &quot; + b);
+		})(123, 456);
+</code></pre>
+<p>立即执行函数：函数定义完，立即被调用，这种函数叫做立即执行函数。
+立即执行函数往往只会执行一次。为什么呢？因为没有变量保存它，执行完了之后，就找不到它了。</p>
+<h1 id="方法">方法</h1>
+<p>函数也可以称为对象的属性。<strong>如果一个函数作为一个对象的属性保存，那么我们称这个函数是这个对象的方法。</strong>
+调用这个函数就说调用对象的方法（method）。相比于方法，它只是名称上的区别，并没有其他的区别。
+函数举例：</p>
+<pre><code>		// 调用函数
+		fn();
+</code></pre>
+<p>方法举例：</p>
+<pre><code>		// 调用方法
+		obj.fn();
+</code></pre>
+<p>我们可以这样说，如果直接是<code>fn()</code>，那就说明是函数调用。如果是发现<code>XX.fn()</code>的这种形式，那就说明是<strong>方法</strong>调用。</p>
 
             </div>
-          </article>
+            
+              <div class="tag-container">
+                
+                  <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="tag">
+                    Javascript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/mHPhFePin">
+                  <h3 class="post-title">
+                    08. 基本数据类型&amp;引用数据类型
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://fuckupc.github.io/post/mHPhFePin">
-              <h3 class="post-title">
-                08. 基本数据类型&amp;引用数据类型
-              </h3>
-            </a>
-          </div>  
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '48a1f04adf6a01060905',
-    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-    repo: 'fuckupc.github.io',
-    owner: 'fuckupc',
-    admin: ['fuckupc'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-    
-        <div class="site-footer">
-  Powered by Hve Notes
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>

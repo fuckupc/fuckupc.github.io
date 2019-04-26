@@ -1,69 +1,84 @@
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" >
+
 <title>02-2.变量的数据类型 | Legend of Today</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://fuckupc.github.io">
-  <img class="avatar" src="https://fuckupc.github.io/images/avatar.png" alt="" width="80px" height="80px">
-  </a>
-  <h1 class="site-title">
-    Legend of Today
-  </h1>
-  <p class="site-description">
-    “You must unlearn what you have learned.”         – Yoda
-  </p>
-  <div class="menu-container">
-    
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Legend of Today</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
       
-        <a href="/" class="menu">
-          首页
-        </a>
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
       
-    
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
       
-        <a href="/archives" class="menu">
-          归档
-        </a>
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
       
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
   </div>
 </div>
 
-      
-        <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              02-2.变量的数据类型
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2019-03-13 ·
-              </time>
-              
-                <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="post-tags">
-                  # Javascript
-                </a>
-              
-            </div>
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">02-2.变量的数据类型</h2>
+            <div class="post-date">2019-03-13</div>
+            
             <div class="post-content">
               <p>变量里面能够存储数字、字符串等。变量会自动的根据存储内容的类型不同，来决定自己的类型。</p>
 <p><strong>在JS中一共有六种数据类型：</strong></p>
@@ -72,89 +87,180 @@
 <p>注意：内置对象function、Array、Date、RegExp、Error等都是属于Object类型。也就是说，除了那五种基本数据类型之外，其他的，都称之为 Object类型。</p>
 <pre><code>面试问：引用数据类型有几种？
 
-面试答：只有一种，即 Object 类型。</code></pre><p><strong>数据类型之间最大的区别：</strong></p>
+面试答：只有一种，即 Object 类型。
+</code></pre>
+<p><strong>数据类型之间最大的区别：</strong></p>
 <p>基本数据类型：参数赋值的时候，传数值。</p>
 <p>引用数据类型：参数赋值的时候，传地址（修改的同一片内存空间）。</p>
-<p><strong>String 字符串</strong><br>注意事项：<br>（1）在JS中，字符串需要使用引号引起来。使用双引号或单引号都可以，但是不要混着用。<br>（2）引号不能嵌套：双引号里不能再放双引号，单引号里不能再放单引号。但是单引号里可以嵌套双引号。<br>（3）<strong>转义字符</strong>：在字符串中我们可以使用\作为转义字符，当表示一些特殊符号时可以使用\进行转义。<br><code>\&quot;</code> 表示 <code>&quot;</code><br><code>\&#39;</code>表示<code>&#39;</code><br><code>\n</code> 表示换行<br><code>\r</code>表示回车<br><code>\t</code> 表示制表符<br><code>\b</code> 表示空格<br><code>\\</code> 表示<code>\</code><br>将其他数值转换为字符串有三种方式：拼串  <code>toString()</code>   <code>String()</code></p>
-<p><strong>补充知识：typeof 运算符</strong><br>typeof()表示“获取变量的类型”，返回的是小写，语法为：<code>typeof 变量</code></p>
-<p><strong>返回结果：</strong><br><code>typeof 数值</code> 的返回结果：number<br><code>typeof 字符串</code> 的返回结果：string<br><code>typeof 布尔型</code> 的返回结果：boolean<br><code>typeof undefined</code> 的返回结果：undefined<br><code>typeof null</code> 的返回结果：object</p>
+<p><strong>String 字符串</strong>
+注意事项：
+（1）在JS中，字符串需要使用引号引起来。使用双引号或单引号都可以，但是不要混着用。
+（2）引号不能嵌套：双引号里不能再放双引号，单引号里不能再放单引号。但是单引号里可以嵌套双引号。
+（3）<strong>转义字符</strong>：在字符串中我们可以使用\作为转义字符，当表示一些特殊符号时可以使用\进行转义。
+<code>\&quot;</code> 表示 <code>&quot;</code>
+<code>\'</code>表示<code>'</code>
+<code>\n</code> 表示换行
+<code>\r</code>表示回车
+<code>\t</code> 表示制表符
+<code>\b</code> 表示空格
+<code>\\</code> 表示<code>\</code>
+将其他数值转换为字符串有三种方式：拼串  <code>toString()</code>   <code>String()</code></p>
+<p><strong>补充知识：typeof 运算符</strong>
+typeof()表示“获取变量的类型”，返回的是小写，语法为：<code>typeof 变量</code></p>
+<p><strong>返回结果：</strong>
+<code>typeof 数值</code> 的返回结果：number
+<code>typeof 字符串</code> 的返回结果：string
+<code>typeof 布尔型</code> 的返回结果：boolean
+<code>typeof undefined</code> 的返回结果：undefined
+<code>typeof null</code> 的返回结果：object</p>
 <p>在JavaScript中，只要是数，就是 number 数值型的。无论整浮、浮点数（即小数）、无论大小、无论正负，都是 number 类型的。</p>
-<p><strong>数值型：Number</strong><br>在JS中所有的数值都是Number类型，包括整数和浮点数（小数）。</p>
-<pre><code>    var a = 100;    //定义了一个变量a，并且赋值100
-    console.log(typeof a);    //输出a变量的类型</code></pre><p>上方代码的输出结果为：<br><code>number</code></p>
-<p><strong>数值范围：</strong><br>由于内存的限制，ECMAScript 并不能保存世界上所有的数值。<br>最大值：Number.MAX_VALUE，这个值为： 1.7976931348623157e+308<br>最小值：Number.MIN_VALUE，这个值为： 5e-324<br>如果使用Number表示的变量超过了最大值，则会返回Infinity。<br>无穷大（正无穷）：Infinity<br>无穷小（负无穷）：-Infinity<br>注意：typeof Infinity的返回结果是number。</p>
-<p><strong>NaN和isNaN()函数：</strong><br>（1）NaN：是一个特殊的数字，表示Not a Number，非数值。比如：</p>
+<p><strong>数值型：Number</strong>
+在JS中所有的数值都是Number类型，包括整数和浮点数（小数）。</p>
+<pre><code>	var a = 100;	//定义了一个变量a，并且赋值100
+	console.log(typeof a);	//输出a变量的类型
+</code></pre>
+<p>上方代码的输出结果为：
+<code>number</code></p>
+<p><strong>数值范围：</strong>
+由于内存的限制，ECMAScript 并不能保存世界上所有的数值。
+最大值：Number.MAX_VALUE，这个值为： 1.7976931348623157e+308
+最小值：Number.MIN_VALUE，这个值为： 5e-324
+如果使用Number表示的变量超过了最大值，则会返回Infinity。
+无穷大（正无穷）：Infinity
+无穷小（负无穷）：-Infinity
+注意：typeof Infinity的返回结果是number。</p>
+<p><strong>NaN和isNaN()函数：</strong>
+（1）NaN：是一个特殊的数字，表示Not a Number，非数值。比如：</p>
 <pre><code>console.log(&quot;abc&quot; / 18);  //结果是NaN
 
-    console.log(&quot;abc&quot; * &quot;abcd&quot;); //按理说，字符串相乘是没有结果的，但如果你非要让JS去算，它就一定会给你一个结果。结果是NaN</code></pre><p>注意：<code>typeof NaN</code>的返回结果是number。<br>Undefined和任何数值计算的结果为NaN。NaN 与任何值都不相等，包括 NaN 本身。</p>
+    console.log(&quot;abc&quot; * &quot;abcd&quot;); //按理说，字符串相乘是没有结果的，但如果你非要让JS去算，它就一定会给你一个结果。结果是NaN
+</code></pre>
+<p>注意：<code>typeof NaN</code>的返回结果是number。
+Undefined和任何数值计算的结果为NaN。NaN 与任何值都不相等，包括 NaN 本身。</p>
 <p>（2）isNaN() :任何不能被转换为数值的值，都会让这个函数返回 true。</p>
-<pre><code>    isNaN(NaN);// true
-    isNaN(&quot;blue&quot;); // true
-    isNaN(123); // false</code></pre><p><strong>浮点数的运算：</strong><br>在JS中，整数的运算<strong>基本</strong>可以保证精确；但是<strong>小数的运算，可能会得到一个不精确的结果。</strong>所以，千万不要使用JS进行对精确度要求比较高的运算。<br>如下：</p>
+<pre><code>	isNaN(NaN);// true
+	isNaN(&quot;blue&quot;); // true
+	isNaN(123); // false
+</code></pre>
+<p><strong>浮点数的运算：</strong>
+在JS中，整数的运算<strong>基本</strong>可以保证精确；但是**小数的运算，可能会得到一个不精确的结果。**所以，千万不要使用JS进行对精确度要求比较高的运算。
+如下：</p>
 <pre><code>var a = 0.1 + 0.2;
-    console.log(a);  //打印结果：0.30000000000000004</code></pre><p>上方代码中，打印结果并不是0.3，而是0.30000000000000004。<br>我们知道，所有的运算都要转换成二进制去计算，然而，二进制是无法精确表示1/10的。因此存在小数的计算不精确的问题。</p>
-<p><strong>连字符和加号的区别</strong><br>键盘上的+可能是连字符，也可能是数字的加号。如下：</p>
-<pre><code>        console.log(&quot;我&quot; + &quot;爱&quot; + &quot;你&quot;);    //连字符，把三个独立的汉字，连接在一起了
-        console.log(&quot;我+爱+你&quot;);            //原样输出
-        console.log(1+2+3);                //输出6</code></pre><p>总结：如果加号两边都是数值，此时是加。否则，就是连字符（用来连接字符串）。<br><strong>在变量中加入字符串进行拼接，可以被同化为字符串。【重要】</strong></p>
-<p><strong>隐式转换</strong><br>我们知道，<code>&quot;2&quot;+1</code>得到的结果其实是字符串，但是<code>&quot;2&quot;-1</code>得到的结果却是数值1，这是因为计算机自动帮我们进行了“<strong>隐式转换</strong>”。<br>也就是说，-、<em>、/、% 这几个符号会自动进行隐式转换。<br>虽然程序可以对-、</em>、/、% 这几个符号自动进行“隐式转换”；但作为程序员，我们最好自己完成转换，方便程序的可读性。</p>
-<p><strong>布尔值：Boolean</strong><br>true 和 fase。主要用来做逻辑判断。<br>布尔值直接使用就可以了，千万不要加上引号。</p>
-<p><strong>null和undefined</strong><br><strong>null：空值</strong><br>专门用来表示一个为空的<strong>对象</strong>（例如：<code>var a = null</code>）。注意，专门用来表示<strong>空对象</strong>。<br>Null类型的值只有一个，就是null。比如：<code>var a = null</code>。<br>使用 typeof 检查一个null值时，会返回object。</p>
-<p><strong>undefined：未定义</strong><br>声明了一个变量，但是没有赋值（例如：<code>var a;</code>），此时它的值就是undefined。<br>        Undefined类型的值只有一个，就是undefind<br>        使用 type of 检查一个undefined时，会返回undefined。<br>null和undefined有最大的相似性。看看null == undefined的结果(true)也就更加能说明这点。<br>但是null === undefined的结果(false)。它们虽然相似，但还是有区别的，其中一个区别是：和数字运算时，10 + null结果为：10；10 + undefined结果为：NaN。<br>        任何数据类型和undefined运算都是NaN;<br>        任何值和null运算，null可看做0运算。</p>
-<p><strong>变量值的传递（赋值）</strong><br>语句：<br><code>a = b;</code><br>把b的值赋给a，b不变。<br>将等号右边的值，赋给左边的变量；等号右边的变量，值不变。</p>
+    console.log(a);  //打印结果：0.30000000000000004
+</code></pre>
+<p>上方代码中，打印结果并不是0.3，而是0.30000000000000004。
+我们知道，所有的运算都要转换成二进制去计算，然而，二进制是无法精确表示1/10的。因此存在小数的计算不精确的问题。</p>
+<p><strong>连字符和加号的区别</strong>
+键盘上的+可能是连字符，也可能是数字的加号。如下：</p>
+<pre><code>		console.log(&quot;我&quot; + &quot;爱&quot; + &quot;你&quot;);	//连字符，把三个独立的汉字，连接在一起了
+		console.log(&quot;我+爱+你&quot;);			//原样输出
+		console.log(1+2+3);				//输出6
+</code></pre>
+<p>总结：如果加号两边都是数值，此时是加。否则，就是连字符（用来连接字符串）。
+<strong>在变量中加入字符串进行拼接，可以被同化为字符串。【重要】</strong></p>
+<p><strong>隐式转换</strong>
+我们知道，<code>&quot;2&quot;+1</code>得到的结果其实是字符串，但是<code>&quot;2&quot;-1</code>得到的结果却是数值1，这是因为计算机自动帮我们进行了“<strong>隐式转换</strong>”。
+也就是说，-、<em>、/、% 这几个符号会自动进行隐式转换。
+虽然程序可以对-、</em>、/、% 这几个符号自动进行“隐式转换”；但作为程序员，我们最好自己完成转换，方便程序的可读性。</p>
+<p><strong>布尔值：Boolean</strong>
+true 和 fase。主要用来做逻辑判断。
+布尔值直接使用就可以了，千万不要加上引号。</p>
+<p><strong>null和undefined</strong>
+<strong>null：空值</strong>
+专门用来表示一个为空的<strong>对象</strong>（例如：<code>var a = null</code>）。注意，专门用来表示<strong>空对象</strong>。
+Null类型的值只有一个，就是null。比如：<code>var a = null</code>。
+使用 typeof 检查一个null值时，会返回object。</p>
+<p><strong>undefined：未定义</strong>
+声明了一个变量，但是没有赋值（例如：<code>var a;</code>），此时它的值就是undefined。
+Undefined类型的值只有一个，就是undefind
+使用 type of 检查一个undefined时，会返回undefined。
+null和undefined有最大的相似性。看看null == undefined的结果(true)也就更加能说明这点。
+但是null === undefined的结果(false)。它们虽然相似，但还是有区别的，其中一个区别是：和数字运算时，10 + null结果为：10；10 + undefined结果为：NaN。
+任何数据类型和undefined运算都是NaN;
+任何值和null运算，null可看做0运算。</p>
+<p><strong>变量值的传递（赋值）</strong>
+语句：
+<code>a = b;</code>
+把b的值赋给a，b不变。
+将等号右边的值，赋给左边的变量；等号右边的变量，值不变。</p>
 
             </div>
-          </article>
+            
+              <div class="tag-container">
+                
+                  <a href="https://fuckupc.github.io/tag/10cTD3yCu" class="tag">
+                    Javascript
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/bian-liang">
+                  <h3 class="post-title">
+                    02-1.变量
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://fuckupc.github.io/post/bian-liang">
-              <h3 class="post-title">
-                02-1.变量
-              </h3>
-            </a>
-          </div>  
-        
-
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '48a1f04adf6a01060905',
-    clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
-    repo: 'fuckupc.github.io',
-    owner: 'fuckupc',
-    admin: ['fuckupc'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-    
-        <div class="site-footer">
-  Powered by Hve Notes
-</div>
-
-<script>
-  hljs.initHighlightingOnLoad()
-</script>
-
       </div>
     </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
   </body>
 </html>
