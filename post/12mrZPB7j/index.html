@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>模拟谷歌面试 | 前端拾遗</title>
+<meta name="description" content="“You must unlearn what you have learned.”         – Yoda">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
+<link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">前端拾遗</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      “You must unlearn what you have learned.”         – Yoda
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">模拟谷歌面试</h2>
+            <div class="post-date">2019-05-06</div>
+            
+            <div class="post-content">
+              <p>本文转载自Udemy上的课程《Master The Coding Interview: Data Structures + Algorithms》，作者Andrei Neagoie。
+<strong>优质代码的三个要点：</strong>
+1.良好的可读性
+2.尽量少的运行时间
+3.尽量少的空间占用
+<strong>面试官考察的技能：</strong></p>
+<ul>
+<li>分析能力 —— 你是如何思考问题并分析事物的？</li>
+<li>代码能力 —— 你代码质量如何？是否简洁、有条理、可读性好?</li>
+<li>技术知识 —— 你是否知晓你所要应聘岗位的基础知识？</li>
+<li>沟通能力 —— 你的个性与公司文化是否相符？
+<strong>解决问题的标准流程：</strong></li>
+</ul>
+<ol>
+<li>当面试官对问题进行描述时，及时写下关键信息（比如，有序数组）。确保你清楚所有细节。向对方展示你的条理性。</li>
+<li>确保你再三检查：输入是什么？输出是什么？</li>
+<li>这个问题背后的意义是什么？用不用考虑运行时间、空间、内存......？主要目标是什么？</li>
+<li>不要一直问个不停，会引起对方的反感。</li>
+<li>从最简单的方案开始。映入脑海的第一种思路。你不需要开始写代码，只需要说出来。这能让对方觉得你思维敏捷且周密。</li>
+<li>告诉面试官这方法为什么不是最优方案。比如，运行时间在O(n^2)以上，可读性差，等等。</li>
+<li>从头到尾演练一次你的方案，做出评估。试着想办法让程序出错。有无繁琐，有无瓶颈（如嵌套循环），有无冗余？你是否有遗漏已知条件？瓶颈就是 &quot;Big O&quot; 最大的代码块。集中处理瓶颈区域，它一般会造成重复工作。</li>
+<li>开始写代码前，从头到尾想一遍并写下你要做哪些步骤。</li>
+<li>按照一个个的模块来写你的代码。把你的代码拆分成一个个美观的小片段，当觉得有必要时加上一些注释。</li>
+<li>现在开始写你的代码吧！提醒自己，写之前做的准备工作越多，你越清楚你要写什么，你代码写的就越好。因此，绝对不要在不确定代码是如何实现时就开始写。否则你的代码将不堪入目。记住：很多面试时间都不够你把代码写完整。所以要这样想：我怎么做才能让面试官觉得，我能解决这个问题，而且我比其他人更优秀？还要记得把代码拆分成一个个函数。（如果实在记不清某个方法，就自己编写一个，这样需要它的时候你至少还有的用。）开始写吧，从简单的开始写起。</li>
+<li>思考测误，如何让自己的代码漏出破绽。永远不要认为输入值会符合你的理想预期。想象一下，有人不停地对着你的代码想方设法找漏洞，邪恶的Darth Vader正在使用你的函数。你将如何保卫它？永远要刻意检查你最不想要的错误输入值。有个技巧：一边把你要检测的错误输入值写在注释里 ...... 一边写着函数， 然后告诉面试官这些是用来进行测试的（你不需要真的把测试写出来）。</li>
+<li>别用令人费解的变量名，如 i 和 j 。写的代码要让别人易于读懂。</li>
+<li>测试你的代码：检查 无输入时、输入为0、undefined、null、巨大数组、异步程序、等等。询问面试官，觉得代码有无问题，有无重复，有无漏洞，能不能给出一个可以报错的输入值？</li>
+<li>最后和面试官聊聊你的代码中有哪些可以改进的地方。代码是否可以顺利运行？有没有其他更好的办法？可读性好不好？你想去搜索什么知识来改进你的代码？怎样还可以提高代码性能？如果还有机会，询问他见过的哪种方法最有趣？</li>
+<li>如果面试官对你的解决方案很满意，那么面试到这里就进入了尾声。通常，面试官可能问你额外的问题，比如假设输入值非常大，超过了内存的阀值，或者输入值是数据流，你会怎么做？在谷歌这样注重规模公司，这样的附加问题很常见。通常，答案都是“分而治之”——分布式处理数据，只把一定数量的输入值由硬盘放入内存，把输出值写入硬盘再汇集到一起。</li>
+</ol>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/y79CpEIZW">
+                  <h3 class="post-title">
+                    化工厂工作回忆录
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
