@@ -126,20 +126,20 @@ npm install react-redux
 </code></pre>
 <p>In this way, we can avoid unnoticed missspellings. Because if we use a string and missspelled it, we get no errors, but when we did a variable, we do.</p>
 <p>Next, we create a reducers.js file.</p>
-<pre><code>	const initialState = {
-		searchField: ''
-	}
+<pre><code>const initialState = {
+	searchField: ''
+}
 
-	export const searchRobots = (state=intialState, action={}) =&gt; {
-			/*switch is better for adding things later */
-			switch (action.type) {
-					case CHANGE_SEARCH_FIELD:
-							return Object.assign({}, state, {searchField: action.payload});
-							/* return {...state, searchField: action.payload};  */          
-					default:
-							return state;
-			}
-	}
+export const searchRobots = (state=intialState, action={}) =&gt; {
+		/*switch is better for adding things later */
+		switch (action.type) {
+				case CHANGE_SEARCH_FIELD:
+						return Object.assign({}, state, {searchField: action.payload});
+						/* return {...state, searchField: action.payload};  */          
+				default:
+						return state;
+		}
+}
 </code></pre>
 <p>Then, inside the index.js file, we make some changes:</p>
 <pre><code>	import {Provider} from 'react-redux';
@@ -160,9 +160,10 @@ Instead, we now can pass store as a prop into the App component.</p>
 						 &lt;App /&gt; 
 					&lt;/Provider&gt;, 
 					document.getElementById('root'));
-	/*Using Provider, we can pass the store to all the child tags of App(including App);
-	Without pass to them using:*/
-	&lt;App store={store} /&gt;
+</code></pre>
+<p>Using Provider, we can pass the store to all the child tags of App(including App);
+Without pass to them using:</p>
+<pre><code>	&lt;App store={store} /&gt;
 </code></pre>
 
             </div>
