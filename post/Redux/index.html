@@ -115,16 +115,55 @@ First, use npm install <strong>Redux &amp; React-Redux</strong>.</p>
 npm install react-redux
 </code></pre>
 <p>Second, create an <strong>action.js</strong> file, which will store all the actions.</p>
-<pre><code>export const setSearchField = (text) =&gt; ({
-	type: 'CHANGE_SEARCH_FIELD',
-	payload: text
-})
+<pre><code>				export const setSearchField = (text) =&gt; ({
+					type: 'CHANGE_SEARCH_FIELD',
+					payload: text
+				})
 </code></pre>
 <p>As you can see, it receives user's input and return an object containing the input as a value of its payload property.</p>
 <p>Third, create a constants.js file, which will store all the types of actions.</p>
-<pre><code>export const CHANGE_SEARCH_FIELD ='CHANGE_SEARCH_FIELD';
+<pre><code>				export const CHANGE_SEARCH_FIELD ='CHANGE_SEARCH_FIELD';
 </code></pre>
 <p>In this way, we can avoid unnoticed missspellings. Because if we use a string and missspelled it, we get no errors, but when we did a variable, we do.</p>
+<p>Next, we create a reducers.js file.</p>
+<pre><code>				const initialState = {
+					searchField: ''
+				}
+
+				export const searchRobots = (state=intialState, action={}) =&gt; {
+						/*switch is better for adding things later */
+						switch (action.type) {
+								case CHANGE_SEARCH_FIELD:
+										return Object.assign({}, state, {searchField: action.payload});
+										/* return {...state, searchField: action.payload};  */          
+								default:
+										return state;
+						}
+				}
+</code></pre>
+<p>Then, inside the index.js file, we make some changes:</p>
+<pre><code>				import {Provider} from 'react-redux';
+
+				/*create a store:*/
+				import {createStore} from 'redux';
+
+				/*Then:*/
+				import {searchRobots} from './reducers';
+				const store = createStore(searchRobots);
+</code></pre>
+<p>By using the store, we can remove all the states in the App component.
+Instead, we now can pass store as a prop into the App component.</p>
+<p>At the bottom, we add:</p>
+<pre><code>	ReactDOM.render(
+				 /* Provider can pass down the store to every element inside App*/
+					&lt;Provider store={store}&gt;
+						 &lt;App /&gt; 
+					&lt;/Provider&gt;, 
+					document.getElementById('root'));
+/*Using Provider, we can pass the store to all the child tags of App(including App);
+Without pass to them using:*/
+&lt;App store={store} /&gt;
+</code></pre>
 
             </div>
             
