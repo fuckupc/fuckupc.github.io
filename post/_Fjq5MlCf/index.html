@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Redux学习小结 | Flash</title>
+<meta name="description" content="I&#39;ve spent my whole life searching for the impossible. Never imagining that I would become the impossible. 
+        --Barry Allen">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
+<link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://fuckupc.github.io">
+        <img src="https://fuckupc.github.io/images/avatar.png" class="site-logo">
+        <h1 class="site-title">Flash</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="site-description">
+      I've spent my whole life searching for the impossible. Never imagining that I would become the impossible. 
+        --Barry Allen
+    </div>
+    <div class="site-footer">
+      Powered by Hve Notes
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Redux学习小结</h2>
+            <div class="post-date">2019-05-17</div>
+            
+            <div class="post-content">
+              <h1 id="why-redux">Why Redux?</h1>
+<ul>
+<li>Good for managing large state.</li>
+<li>Useful for sharing data between containers.</li>
+<li>Predictable state management using the 3 priciples.</li>
+</ul>
+<p>Remember, React is a View Layer, which is really good at managing view but doesn't know how to manage state very well.</p>
+<p><strong>The 3 Principles</strong></p>
+<ol>
+<li>Single source of truth</li>
+<li>State is read only</li>
+<li>Changes using pure functions</li>
+</ol>
+<p>Redux work flow:
+<img src="https://fuckupc.github.io/post-images/1558102488832.PNG" alt=""></p>
+<p>This is how JQuery used to work:
+<img src="https://fuckupc.github.io/post-images/1558102531627.PNG" alt=""></p>
+<p>This is how Redux work:
+<img src="https://fuckupc.github.io/post-images/1558102563417.PNG" alt=""></p>
+<p>Redux was inspired by Flux Pattern:
+<img src="https://fuckupc.github.io/post-images/1558102598261.PNG" alt=""></p>
+<p>Before that, we have MVC(Modle View Control):
+<img src="https://fuckupc.github.io/post-images/1558102766015.PNG" alt=""></p>
+<p>In a nutshell, Redux is:
+<img src="https://fuckupc.github.io/post-images/1558102795268.PNG" alt=""></p>
+<p>But you can still use State:
+<img src="https://fuckupc.github.io/post-images/1558102847523.PNG" alt=""></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/W-HkOM7CD">
+                  <h3 class="post-title">
+                    在2019年开始学习编程、入职、一路开心
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
