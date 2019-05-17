@@ -108,10 +108,23 @@
 <p>But you can still use State:
 <img src="https://fuckupc.github.io/post-images/1558102847523.PNG" alt=""></p>
 <hr>
+<p>Let's see how to use Redux:
+First, use npm install <strong>Redux &amp; React-Redux</strong>.</p>
 <pre><code>npm install redux
 
 npm install react-redux
 </code></pre>
+<p>Second, create an <strong>action.js</strong> file, which will store all the actions.</p>
+<pre><code>export const setSearchField = (text) =&gt; ({
+	type: 'CHANGE_SEARCH_FIELD',
+	payload: text
+})
+</code></pre>
+<p>As you can see, it receives user's input and return an object containing the input as a value of its payload property.</p>
+<p>Third, create a constants.js file, which will store all the types of actions.</p>
+<pre><code>export const CHANGE_SEARCH_FIELD ='CHANGE_SEARCH_FIELD';
+</code></pre>
+<p>In this way, we can avoid unnoticed missspellings. Because if we use a string and missspelled it, we get no errors, but when we did a variable, we do.</p>
 
             </div>
             
