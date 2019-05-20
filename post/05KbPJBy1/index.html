@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JuniorToSenior | Flash</title>
+<title>Popular Tools For React + Redux | Flash</title>
 <meta name="description" content="I&#39;ve spent my whole life searching for the impossible. Never imagining that I would become the impossible.">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -11,6 +11,12 @@
 <link rel="shortcut icon" href="https://fuckupc.github.io/favicon.ico">
 <link rel="stylesheet" href="https://fuckupc.github.io/styles/main.css">
 
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
 
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -69,28 +75,56 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          <h2 class="current-tag">标签: JuniorToSenior</h2>
-          
-            <article class="post-item">
-              <div class="left">
-                <a href="https://fuckupc.github.io/post/Redux">
-                  <h2 class="post-title">Redux In A Nutshell</h2>
-                </a>
-                <div class="post-date">
-                  2019-05-17
-                </div>
-                <div class="post-abstract">
-                  
-                </div>
-              </div>
-              
-            </article>
-          
+          <div class="post-detail">
+            <h2 class="post-title">Popular Tools For React + Redux</h2>
+            <div class="post-date">2019-05-20</div>
+            
+            <div class="post-content">
+              <p>React-Router:
+https://reacttraining.com/react-router/</p>
+<p>JS Library:
+https://ramdajs.com/
+https://lodash.com/</p>
+<p>For styling:
+https://glamorous.rocks/
+https://www.styled-components.com/
+https://github.com/css-modules/css-modules</p>
+<p>Framework:
+https://www.gatsbyjs.org/</p>
+<p>Next.js 5:
+https://zeit.co/blog/next5</p>
+<p>Reusable Components:
+https://v0.material-ui.com/#/components/app-bar
+https://react.semantic-ui.com/elements/button/</p>
+<p>Selector library for Redux:
+https://github.com/reduxjs/reselect</p>
+<p>Redux-Saga:
+https://redux-saga.js.org/</p>
+<p>Immutable.js:
+https://immutable-js.github.io/immutable-js/</p>
 
-          <div class="pagination-container">
-  
-  
-</div>
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://fuckupc.github.io/post/Redux">
+                  <h3 class="post-title">
+                    Redux In A Nutshell
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
 
         </div>
       </div>
@@ -112,6 +146,29 @@ var app = new Vue({
 })
 
 </script>
+
+
+  
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: '48a1f04adf6a01060905',
+        clientSecret: 'f58a363eb32c4ae38493990e86e8bfd8654e1a17',
+        repo: 'fuckupc.github.io',
+        owner: 'fuckupc',
+        admin: ['fuckupc'],
+        id: location.pathname,      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
